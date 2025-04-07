@@ -10,7 +10,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Advanced Academic Support for <span className="text-gradient">Experimental Sciences</span>
+              Suporte Academico Avançado para <span className="text-gradient">Ciencias Experimentais</span>
             </h1>
             <p className="text-lg text-gray-600 mb-8 md:pr-12">
               Specialized assistance for postgraduate students in experimental physics and chemistry. Elevate your research with expert guidance, tailored resources, and comprehensive support.
