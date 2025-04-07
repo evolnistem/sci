@@ -13,15 +13,15 @@ const Hero = () => {
               Suporte Academico Avançado para <span className="text-gradient">Ciencias Experimentais</span>
             </h1>
             <p className="text-lg text-gray-600 mb-8 md:pr-12">
-              Specialized assistance for postgraduate students in experimental physics and chemistry. Elevate your research with expert guidance, tailored resources, and comprehensive support.
+              Assistência especializada para estudantes de pós-graduação em física e química experimental. Eleve sua pesquisa com orientação especializada, recursos personalizados e suporte abrangente.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="bg-science-blue hover:bg-science-blue/90 text-white px-8 py-6 text-lg rounded-md">
-                Explore Services
+                Explorar Serviços
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button variant="outline" className="border-science-blue text-science-blue hover:bg-science-blue/10 px-8 py-6 text-lg rounded-md">
-                Request Consultation
+                Solicitar Consulta
               </Button>
             </div>
           </div>
@@ -34,7 +34,7 @@ const Hero = () => {
               <div className="aspect-[4/3] rounded-xl overflow-hidden bg-gradient-to-br from-science-blue/20 to-science-teal/20 flex items-center justify-center">
                 <img 
                   src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
-                  alt="Postgraduate research laboratory"
+                  alt="Laboratório de pesquisa de pós-graduação"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -45,8 +45,8 @@ const Hero = () => {
                     96%
                   </div>
                   <div>
-                    <p className="text-sm font-medium">Success Rate</p>
-                    <p className="text-xs text-gray-500">Among our clients</p>
+                    <p className="text-sm font-medium">Taxa de Sucesso</p>
+                    <p className="text-xs text-gray-500">Entre nossos clientes</p>
                   </div>
                 </div>
               </div>
@@ -56,20 +56,20 @@ const Hero = () => {
         
         <div className="mt-20 py-8 px-6 bg-gray-50 rounded-xl border border-gray-100 flex flex-wrap justify-between items-center gap-8">
           <div className="text-center mx-auto md:mx-0">
-            <p className="text-sm text-gray-500 mb-1">Trusted by students from</p>
-            <p className="font-serif font-semibold text-lg">Oxford University</p>
+            <p className="text-sm text-gray-500 mb-1">Confiado por estudantes de</p>
+            <p className="font-serif font-semibold text-lg">Universidade de Oxford</p>
           </div>
           <div className="text-center mx-auto md:mx-0">
-            <p className="text-sm text-gray-500 mb-1">Trusted by students from</p>
+            <p className="text-sm text-gray-500 mb-1">Confiado por estudantes de</p>
             <p className="font-serif font-semibold text-lg">MIT</p>
           </div>
           <div className="text-center mx-auto md:mx-0">
-            <p className="text-sm text-gray-500 mb-1">Trusted by students from</p>
-            <p className="font-serif font-semibold text-lg">Stanford University</p>
+            <p className="text-sm text-gray-500 mb-1">Confiado por estudantes de</p>
+            <p className="font-serif font-semibold text-lg">Universidade de Stanford</p>
           </div>
           <div className="text-center mx-auto md:mx-0">
-            <p className="text-sm text-gray-500 mb-1">Trusted by students from</p>
-            <p className="font-serif font-semibold text-lg">Cambridge University</p>
+            <p className="text-sm text-gray-500 mb-1">Confiado por estudantes de</p>
+            <p className="font-serif font-semibold text-lg">Universidade de Cambridge</p>
           </div>
         </div>
       </div>

@@ -19,19 +19,19 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <a href="#about" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
-              About
+              Sobre
             </a>
             <a href="#services" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
-              Services
+              Serviços
             </a>
             <a href="#why-choose-us" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
-              Why Choose Us
+              Por Que Nos Escolher
             </a>
             <a href="#contact" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
-              Contact
+              Contato
             </a>
             <Button className="bg-science-blue text-white hover:bg-science-blue/90">
-              Get Started
+              Comece Agora
             </Button>
           </div>
 
@@ -47,19 +47,19 @@ const Navbar = () => {
         {isMenuOpen && <div className="md:hidden mt-4 py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
               <a href="#about" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
-                About
+                Sobre
               </a>
               <a href="#services" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
-                Services
+                Serviços
               </a>
               <a href="#why-choose-us" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
-                Why Choose Us
+                Por Que Nos Escolher
               </a>
               <a href="#contact" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
-                Contact
+                Contato
               </a>
               <Button className="bg-science-blue text-white hover:bg-science-blue/90 w-full">
-                Get Started
+                Comece Agora
               </Button>
             </div>
           </div>}

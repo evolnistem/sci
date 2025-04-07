@@ -5,33 +5,33 @@ import { Shield, Users, Clock, Award, Sparkles, Gauge } from 'lucide-react';
 const reasons = [
   {
     icon: <Shield className="h-8 w-8 text-science-blue" />,
-    title: "100% Confidentiality",
-    description: "Your research and personal information are always kept strictly confidential."
+    title: "100% de Confidencialidade",
+    description: "Sua pesquisa e informações pessoais são sempre mantidas estritamente confidenciais."
   },
   {
     icon: <Users className="h-8 w-8 text-science-blue" />,
-    title: "PhD-Level Experts",
-    description: "Our team consists of specialists with advanced degrees in physics and chemistry."
+    title: "Especialistas com Doutorado",
+    description: "Nossa equipe é composta por especialistas com diplomas avançados em física e química."
   },
   {
     icon: <Clock className="h-8 w-8 text-science-blue" />,
-    title: "Timely Delivery",
-    description: "We understand academic deadlines and ensure on-time delivery of all projects."
+    title: "Entrega Pontual",
+    description: "Entendemos os prazos acadêmicos e garantimos a entrega pontual de todos os projetos."
   },
   {
     icon: <Award className="h-8 w-8 text-science-blue" />,
-    title: "High Success Rate",
-    description: "96% of our clients have successfully completed their academic objectives."
+    title: "Alta Taxa de Sucesso",
+    description: "96% dos nossos clientes concluíram com sucesso seus objetivos acadêmicos."
   },
   {
     icon: <Sparkles className="h-8 w-8 text-science-blue" />,
-    title: "Custom Solutions",
-    description: "Every service is tailored to your specific research needs and challenges."
+    title: "Soluções Personalizadas",
+    description: "Cada serviço é adaptado às suas necessidades e desafios específicos de pesquisa."
   },
   {
     icon: <Gauge className="h-8 w-8 text-science-blue" />,
-    title: "Cutting-Edge Methods",
-    description: "We stay updated with the latest research methodologies and technologies."
+    title: "Métodos de Ponta",
+    description: "Mantemo-nos atualizados com as mais recentes metodologias e tecnologias de pesquisa."
   }
 ];
 
@@ -40,9 +40,9 @@ const WhyChooseUs = () => {
     <section id="why-choose-us" className="section-padding bg-white">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose <span className="text-gradient">Us</span></h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Por Que <span className="text-gradient">Nos Escolher</span></h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Our commitment to academic excellence and specialized expertise sets us apart in supporting experimental science research.
+            Nosso compromisso com a excelência acadêmica e expertise especializada nos diferencia no apoio à pesquisa em ciências experimentais.
           </p>
         </div>
         
@@ -65,9 +65,9 @@ const WhyChooseUs = () => {
         <div className="mt-20 p-8 bg-gradient-to-r from-science-blue/10 to-science-teal/10 rounded-2xl border border-blue-100">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-4">Client Satisfaction Is Our Priority</h3>
+              <h3 className="text-2xl font-bold mb-4">A Satisfação do Cliente é Nossa Prioridade</h3>
               <p className="text-gray-600 mb-6">
-                We pride ourselves on maintaining the highest standards of academic integrity while delivering exceptional support to postgraduate researchers.
+                Orgulhamo-nos de manter os mais altos padrões de integridade acadêmica enquanto oferecemos suporte excepcional aos pesquisadores de pós-graduação.
               </p>
               <div className="flex space-x-2">
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -76,29 +76,29 @@ const WhyChooseUs = () => {
                   </svg>
                 ))}
               </div>
-              <p className="mt-2 font-medium">4.9/5 average client rating</p>
+              <p className="mt-2 font-medium">Classificação média de 4,9/5 dos clientes</p>
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
               <div className="flex flex-col space-y-4">
                 <div className="p-4 bg-gray-50 rounded-lg">
                   <p className="italic text-gray-600">
-                    "The assistance I received with my quantum mechanics experimental design was invaluable. The team's expertise helped me overcome significant challenges in my thesis research."
+                    "A assistência que recebi com meu design experimental de mecânica quântica foi inestimável. A expertise da equipe me ajudou a superar desafios significativos na minha pesquisa de tese."
                   </p>
                   <div className="mt-4 flex items-center">
                     <div className="h-10 w-10 rounded-full bg-science-blue flex items-center justify-center text-white font-bold">
                       JD
                     </div>
                     <div className="ml-3">
-                      <p className="font-medium">John D.</p>
-                      <p className="text-sm text-gray-500">PhD Candidate in Physics</p>
+                      <p className="font-medium">João D.</p>
+                      <p className="text-sm text-gray-500">Doutorando em Física</p>
                     </div>
                   </div>
                 </div>
                 
                 <div className="p-4 bg-gray-50 rounded-lg">
                   <p className="italic text-gray-600">
-                    "Their expertise in analytical chemistry methods significantly improved my research outcomes. The personalized support was exactly what I needed for my postgraduate work."
+                    "A expertise deles em métodos de química analítica melhorou significativamente os resultados da minha pesquisa. O suporte personalizado era exatamente o que eu precisava para meu trabalho de pós-graduação."
                   </p>
                   <div className="mt-4 flex items-center">
                     <div className="h-10 w-10 rounded-full bg-science-teal flex items-center justify-center text-white font-bold">
@@ -106,7 +106,7 @@ const WhyChooseUs = () => {
                     </div>
                     <div className="ml-3">
                       <p className="font-medium">Maria L.</p>
-                      <p className="text-sm text-gray-500">Chemistry Research Associate</p>
+                      <p className="text-sm text-gray-500">Associada de Pesquisa em Química</p>
                     </div>
                   </div>
                 </div>

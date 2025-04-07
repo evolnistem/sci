@@ -31,8 +31,8 @@ const ContactForm = () => {
     console.log('Form submitted:', formData);
     
     toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
+      title: "Mensagem Enviada!",
+      description: "Entraremos em contato o mais breve possível.",
     });
     
     // Reset form
@@ -49,28 +49,28 @@ const ContactForm = () => {
     <section id="contact" className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in <span className="text-gradient">Touch</span></h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Entre em <span className="text-gradient">Contato</span></h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Have questions about our services or want to discuss your specific needs? Reach out to our team of experts.
+            Tem dúvidas sobre nossos serviços ou deseja discutir suas necessidades específicas? Entre em contato com nossa equipe de especialistas.
           </p>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 bg-white p-8 rounded-xl shadow-sm border border-gray-200">
-            <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
+            <h3 className="text-2xl font-bold mb-6">Envie-nos uma Mensagem</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Full Name
+                    Nome Completo
                   </label>
                   <Input
                     id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Your name"
+                    placeholder="Seu nome"
                     required
                     className="w-full"
                   />
@@ -78,7 +78,7 @@ const ContactForm = () => {
                 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email Address
+                    Endereço de Email
                   </label>
                   <Input
                     id="email"
@@ -86,7 +86,7 @@ const ContactForm = () => {
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="your.email@example.com"
+                    placeholder="seu.email@exemplo.com"
                     required
                     className="w-full"
                   />
@@ -96,14 +96,14 @@ const ContactForm = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                    Subject
+                    Assunto
                   </label>
                   <Input
                     id="subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="Subject of your message"
+                    placeholder="Assunto da sua mensagem"
                     required
                     className="w-full"
                   />
@@ -111,20 +111,20 @@ const ContactForm = () => {
                 
                 <div>
                   <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">
-                    Service You're Interested In
+                    Serviço de Interesse
                   </label>
                   <Select value={formData.service} onValueChange={handleSelectChange}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select a service" />
+                      <SelectValue placeholder="Selecione um serviço" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="experimental-design">Experimental Design Assistance</SelectItem>
-                      <SelectItem value="data-analysis">Data Analysis & Interpretation</SelectItem>
-                      <SelectItem value="literature-review">Literature Review & Research</SelectItem>
-                      <SelectItem value="thesis-support">Thesis & Dissertation Support</SelectItem>
-                      <SelectItem value="consultation">Problem-Solving Consultation</SelectItem>
-                      <SelectItem value="method-optimization">Research Method Optimization</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
+                      <SelectItem value="experimental-design">Assistência em Design Experimental</SelectItem>
+                      <SelectItem value="data-analysis">Análise e Interpretação de Dados</SelectItem>
+                      <SelectItem value="literature-review">Revisão de Literatura e Pesquisa</SelectItem>
+                      <SelectItem value="thesis-support">Suporte para Teses e Dissertações</SelectItem>
+                      <SelectItem value="consultation">Consultoria para Resolução de Problemas</SelectItem>
+                      <SelectItem value="method-optimization">Otimização de Métodos de Pesquisa</SelectItem>
+                      <SelectItem value="other">Outro</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -132,39 +132,39 @@ const ContactForm = () => {
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Message
+                  Mensagem
                 </label>
                 <Textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Please describe your project or question in detail..."
+                  placeholder="Por favor, descreva seu projeto ou pergunta em detalhes..."
                   required
                   className="min-h-[120px]"
                 />
               </div>
               
               <Button type="submit" className="w-full bg-science-blue hover:bg-science-blue/90">
-                Send Message
+                Enviar Mensagem
               </Button>
               
               <p className="text-xs text-gray-500 text-center mt-4">
-                By submitting this form, you agree to our privacy policy and terms of service.
+                Ao enviar este formulário, você concorda com nossa política de privacidade e termos de serviço.
               </p>
             </form>
           </div>
           
           <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 self-start">
-            <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+            <h3 className="text-2xl font-bold mb-6">Informações de Contato</h3>
             
             <div className="space-y-6">
               <div className="flex items-start">
                 <Mail className="h-6 w-6 text-science-blue mr-3 mt-0.5" />
                 <div>
-                  <p className="font-medium">Email Us</p>
-                  <a href="mailto:info@quantumscholarlab.com" className="text-science-blue hover:underline">
-                    info@quantumscholarlab.com
+                  <p className="font-medium">Email</p>
+                  <a href="mailto:info@labtrackconsulting.com" className="text-science-blue hover:underline">
+                    info@labtrackconsulting.com
                   </a>
                 </div>
               </div>
@@ -172,9 +172,9 @@ const ContactForm = () => {
               <div className="flex items-start">
                 <Phone className="h-6 w-6 text-science-blue mr-3 mt-0.5" />
                 <div>
-                  <p className="font-medium">Call Us</p>
+                  <p className="font-medium">Telefone</p>
                   <a href="tel:+1234567890" className="text-science-blue hover:underline">
-                    +1 (234) 567-890
+                    +55 (11) 1234-5678
                   </a>
                 </div>
               </div>
@@ -182,24 +182,24 @@ const ContactForm = () => {
               <div className="flex items-start">
                 <MapPin className="h-6 w-6 text-science-blue mr-3 mt-0.5" />
                 <div>
-                  <p className="font-medium">Our Location</p>
+                  <p className="font-medium">Nossa Localização</p>
                   <p className="text-gray-600">
-                    123 Science Avenue<br />
-                    Research District<br />
-                    Cambridge, CA 98765
+                    Av. Ciência, 123<br />
+                    Distrito de Pesquisa<br />
+                    São Paulo, SP 04321-000
                   </p>
                 </div>
               </div>
               
               <div className="pt-6 border-t border-gray-100">
-                <p className="font-medium mb-3">Office Hours</p>
-                <p className="text-gray-600">Monday - Friday: 9AM - 6PM</p>
-                <p className="text-gray-600">Saturday: 10AM - 4PM</p>
-                <p className="text-gray-600">Sunday: Closed</p>
+                <p className="font-medium mb-3">Horário de Funcionamento</p>
+                <p className="text-gray-600">Segunda - Sexta: 9h - 18h</p>
+                <p className="text-gray-600">Sábado: 10h - 16h</p>
+                <p className="text-gray-600">Domingo: Fechado</p>
               </div>
               
               <div className="pt-6 border-t border-gray-100">
-                <p className="font-medium mb-3">Follow Us</p>
+                <p className="font-medium mb-3">Siga-nos</p>
                 <div className="flex space-x-4">
                   <a href="#" className="p-2 bg-gray-50 rounded-full hover:bg-science-blue/10 transition-colors">
                     <svg className="h-5 w-5 text-science-blue" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

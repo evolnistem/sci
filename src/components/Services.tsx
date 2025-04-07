@@ -13,33 +13,33 @@ import { Card, CardContent } from "@/components/ui/card";
 const services = [
   {
     icon: <FlaskConical className="h-10 w-10 text-science-blue" />,
-    title: "Experimental Design Assistance",
-    description: "Get expert guidance on designing robust experimental setups for physics and chemistry research projects."
+    title: "Assistência em Design Experimental",
+    description: "Obtenha orientação especializada para projetar configurações experimentais robustas para projetos de pesquisa em física e química."
   },
   {
     icon: <Microscope className="h-10 w-10 text-science-blue" />,
-    title: "Data Analysis & Interpretation",
-    description: "Advanced statistical analysis and scientific interpretation of experimental results and measurements."
+    title: "Análise e Interpretação de Dados",
+    description: "Análise estatística avançada e interpretação científica de resultados experimentais e medições."
   },
   {
     icon: <BookOpen className="h-10 w-10 text-science-blue" />,
-    title: "Literature Review & Research",
-    description: "Comprehensive literature surveys and research summaries specific to your experimental field."
+    title: "Revisão de Literatura e Pesquisa",
+    description: "Levantamentos abrangentes de literatura e resumos de pesquisas específicos para seu campo experimental."
   },
   {
     icon: <FileText className="h-10 w-10 text-science-blue" />,
-    title: "Thesis & Dissertation Support",
-    description: "Specialized assistance for structuring, writing, and formatting your scientific documents."
+    title: "Suporte para Teses e Dissertações",
+    description: "Assistência especializada para estruturação, redação e formatação de seus documentos científicos."
   },
   {
     icon: <Lightbulb className="h-10 w-10 text-science-blue" />,
-    title: "Problem-Solving Consultation",
-    description: "One-on-one consultation sessions to overcome specific research challenges and roadblocks."
+    title: "Consultoria para Resolução de Problemas",
+    description: "Sessões de consultoria individuais para superar desafios específicos de pesquisa e obstáculos."
   },
   {
     icon: <LineChart className="h-10 w-10 text-science-blue" />,
-    title: "Research Method Optimization",
-    description: "Fine-tune your experimental methodologies for maximum efficiency and reliable results."
+    title: "Otimização de Métodos de Pesquisa",
+    description: "Aprimore suas metodologias experimentais para máxima eficiência e resultados confiáveis."
   }
 ];
 
@@ -48,9 +48,9 @@ const Services = () => {
     <section id="services" className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our <span className="text-gradient">Services</span></h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Nossos <span className="text-gradient">Serviços</span></h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Comprehensive academic support designed specifically for postgraduate students in experimental physics and chemistry.
+            Suporte acadêmico abrangente projetado especificamente para estudantes de pós-graduação em física e química experimental.
           </p>
         </div>
         
@@ -74,13 +74,13 @@ const Services = () => {
         
         <div className="mt-16 text-center">
           <p className="mb-6 font-medium text-lg">
-            Need a custom solution for your specific research challenge?
+            Precisa de uma solução personalizada para seu desafio específico de pesquisa?
           </p>
           <a 
             href="#contact" 
             className="inline-flex items-center bg-white text-science-blue border-2 border-science-blue hover:bg-science-blue hover:text-white transition-colors duration-300 px-6 py-3 rounded-md font-medium"
           >
-            Request Custom Service
+            Solicitar Serviço Personalizado
           </a>
         </div>
       </div>
