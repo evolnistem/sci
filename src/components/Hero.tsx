@@ -1,11 +1,8 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
-
 const Hero = () => {
-  return (
-    <section className="pt-20 pb-16 md:pt-28 md:pb-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+  return <section className="pt-20 pb-16 md:pt-28 md:pb-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in">
@@ -32,11 +29,7 @@ const Hero = () => {
             
             <div className="relative bg-white p-4 rounded-2xl shadow-xl border border-gray-100 z-10">
               <div className="aspect-[4/3] rounded-xl overflow-hidden bg-gradient-to-br from-science-blue/20 to-science-teal/20 flex items-center justify-center">
-                <img 
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
-                  alt="Laboratório de pesquisa de pós-graduação"
-                  className="w-full h-full object-cover"
-                />
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Laboratório de pesquisa de pós-graduação" className="w-full h-full object-cover" />
               </div>
               
               <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg border border-gray-100">
@@ -54,27 +47,8 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className="mt-20 py-8 px-6 bg-gray-50 rounded-xl border border-gray-100 flex flex-wrap justify-between items-center gap-8">
-          <div className="text-center mx-auto md:mx-0">
-            <p className="text-sm text-gray-500 mb-1">Confiado por estudantes de</p>
-            <p className="font-serif font-semibold text-lg">Universidade de Oxford</p>
-          </div>
-          <div className="text-center mx-auto md:mx-0">
-            <p className="text-sm text-gray-500 mb-1">Confiado por estudantes de</p>
-            <p className="font-serif font-semibold text-lg">MIT</p>
-          </div>
-          <div className="text-center mx-auto md:mx-0">
-            <p className="text-sm text-gray-500 mb-1">Confiado por estudantes de</p>
-            <p className="font-serif font-semibold text-lg">Universidade de Stanford</p>
-          </div>
-          <div className="text-center mx-auto md:mx-0">
-            <p className="text-sm text-gray-500 mb-1">Confiado por estudantes de</p>
-            <p className="font-serif font-semibold text-lg">Universidade de Cambridge</p>
-          </div>
-        </div>
+        
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;

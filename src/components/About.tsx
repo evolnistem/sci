@@ -1,13 +1,10 @@
-
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
-
 const About = () => {
-  return (
-    <section id="about" className="section-padding bg-white">
+  return <section id="about" className="section-padding bg-white">
       <div className="container-custom">
         <div className="mb-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Sobre <span className="text-gradient">LabTrackConsulting</span></h2>
+          <h2 className="">Sobre <span className="text-gradient">LabTrackConsulting</span></h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Fornecemos suporte acadêmico especializado para estudantes de pós-graduação em física e química experimental.
           </p>
@@ -52,19 +49,11 @@ const About = () => {
             
             <div className="relative z-10 grid grid-cols-2 gap-4">
               <div className="rounded-lg overflow-hidden shadow-md">
-                <img 
-                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=600" 
-                  alt="Computador de Pesquisa" 
-                  className="w-full h-full object-cover"
-                />
+                <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=600" alt="Computador de Pesquisa" className="w-full h-full object-cover" />
               </div>
               
               <div className="rounded-lg overflow-hidden shadow-md mt-8">
-                <img 
-                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600" 
-                  alt="Programação para Pesquisa" 
-                  className="w-full h-full object-cover"
-                />
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600" alt="Programação para Pesquisa" className="w-full h-full object-cover" />
               </div>
               
               <div className="bg-science-blue/10 rounded-lg p-6 flex items-center justify-center">
@@ -84,8 +73,6 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
