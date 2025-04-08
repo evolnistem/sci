@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <h3 className="text-xl font-serif font-semibold mb-6">
-              LabTrack<span className="text-science-blue">Consulting</span>
+              Simple<span className="text-science-blue">Consulting</span>
             </h3>
             <p className="text-gray-300 mb-6">
               Assistência acadêmica especializada para estudantes de pós-graduação em física e química experimental.
@@ -98,8 +98,8 @@ const Footer = () => {
                 <svg className="h-5 w-5 mr-3 text-science-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <a href="mailto:info@labtrackconsulting.com" className="text-gray-300 hover:text-white transition-colors">
-                  info@labtrackconsulting.com
+                <a href="mailto:info@simpleconsulting.com" className="text-gray-300 hover:text-white transition-colors">
+                  info@simpleconsulting.com
                 </a>
               </li>
               <li className="flex items-center">
@@ -116,7 +116,7 @@ const Footer = () => {
         
         <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} LabTrackConsulting. Todos os direitos reservados.
+            © {new Date().getFullYear()} SimpleConsulting. Todos os direitos reservados.
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             <a href="#" className="text-gray-400 hover:text-white text-sm">Política de Privacidade</a>

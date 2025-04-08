@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <a href="#" className="text-xl md:text-2xl font-serif font-semibold text-science-dark">
-              LabTrack<span className="text-science-blue">Consulting</span>
+              Simple<span className="text-science-blue">Consulting</span>
             </a>
           </div>
 
