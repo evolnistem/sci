@@ -24,12 +24,13 @@ const WhatsAppButton = ({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg z-50 transition-all duration-300 flex items-center justify-center hover:scale-110",
+        "fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full px-5 py-3 shadow-lg z-50 transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105",
         className
       )}
       aria-label="Contate-nos pelo WhatsApp"
     >
-      <MessageCircle className="h-6 w-6" />
+      <MessageCircle className="h-5 w-5" />
+      <span className="font-medium text-sm">Fale com um de nossos especialistas</span>
     </a>
   );
 };
