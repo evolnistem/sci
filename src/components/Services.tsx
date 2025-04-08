@@ -6,7 +6,10 @@ import {
   BookOpen, 
   FileText, 
   Lightbulb, 
-  LineChart
+  LineChart,
+  FilePen,
+  Book,
+  Search
 } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -40,6 +43,21 @@ const services = [
     icon: <LineChart className="h-10 w-10 text-science-blue" />,
     title: "Otimização de Métodos de Pesquisa",
     description: "Aprimore suas metodologias experimentais para máxima eficiência e resultados confiáveis."
+  },
+  {
+    icon: <FilePen className="h-10 w-10 text-science-blue" />,
+    title: "Redação de Artigos Científicos",
+    description: "Auxílio especializado na estruturação e redação de artigos científicos com clareza e rigor metodológico."
+  },
+  {
+    icon: <Book className="h-10 w-10 text-science-blue" />,
+    title: "Revisão e Edição para Publicação",
+    description: "Revisão detalhada e edição de manuscritos para aumentar as chances de aceitação em periódicos de alto impacto."
+  },
+  {
+    icon: <Search className="h-10 w-10 text-science-blue" />,
+    title: "Estratégias de Publicação",
+    description: "Consultoria sobre escolha de periódicos relevantes, preparação para processo de revisão e resposta a pareceres de revisores."
   }
 ];
 
