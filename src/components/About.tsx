@@ -7,7 +7,7 @@ const About = () => {
     <section id="about" className="section-padding bg-white">
       <div className="container-custom">
         <div className="mb-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Sobre <span className="text-gradient">LabTrackConsulting</span></h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Sobre <span className="text-gradient">SimpleScience</span></h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Fornecemos suporte acadêmico especializado para estudantes de pós-graduação em física e química experimental.
           </p>
