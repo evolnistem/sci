@@ -38,7 +38,7 @@ const services = [{
 }, {
   icon: <Search className="h-10 w-10 text-science-blue" />,
   title: "Estratégias de Publicação",
-  description: "Consultoria sobre escolha de periódicos relevantes, preparação para processo de revisão e resposta a pareceres de revisores."
+  description: "Aumente suas chances de publicação recebendo orientações desde a escolha da revista até a preparação dos arquivos pré-submissão"
 }];
 
 const Services = () => {
