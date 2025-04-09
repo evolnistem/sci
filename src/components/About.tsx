@@ -9,6 +9,36 @@ const About = () => {
           Somos uma empresa especializada em fornecer suporte acadêmico para estudantes de pós-graduação em física e química, ajudando-os a superar desafios em suas pesquisas e alcançar excelência acadêmica.
         </p>
         
+        <div className="bg-gradient-to-r from-science-blue/5 to-science-purple/5 p-6 md:p-8 rounded-xl mb-16 max-w-4xl mx-auto">
+          <h3 className="text-2xl font-bold mb-4 text-center">🎓 Está enfrentando dificuldades na sua pós-graduação?</h3>
+          <p className="text-gray-700 mb-4">
+            Você não está sozinho. Muitos estudantes de mestrado e doutorado sentem-se sobrecarregados diante dos desafios acadêmicos — especialmente nas etapas experimentais, onde os resultados nem sempre saem como o esperado.
+          </p>
+          
+          <p className="text-gray-700 mb-4">
+            🔬 Se você atua nas áreas de Física, Química ou Engenharias, sabe que lidar com equipamentos, metodologias complexas e a pressão por produtividade pode ser desgastante.
+          </p>
+          
+          <p className="text-gray-700 mb-4">
+            💡 É exatamente aí que entra a nossa assessoria acadêmica:
+          </p>
+          
+          <ul className="list-disc pl-6 mb-4 text-gray-700 space-y-2">
+            <li>Acompanhamento individualizado dos seus experimentos;</li>
+            <li>Apoio na organização e estruturação da sua pesquisa;</li>
+            <li>Leitura crítica e sugestões para sua escrita científica (artigos, dissertação, tese);</li>
+            <li>Orientações para análise e interpretação de dados experimentais.</li>
+          </ul>
+          
+          <p className="text-gray-700 mb-4">
+            📈 Nosso objetivo é te ajudar a avançar com mais segurança e eficiência, reduzindo a ansiedade e otimizando seu tempo.
+          </p>
+          
+          <p className="text-gray-700 font-semibold">
+            Entre em contato e descubra como a assessoria certa pode transformar sua trajetória acadêmica.
+          </p>
+        </div>
+        
         <div className="mb-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Sobre <span className="text-gradient">SimpleScience</span></h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
