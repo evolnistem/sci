@@ -48,8 +48,12 @@ const BookingDialog = ({ open, onOpenChange }: BookingDialogProps) => {
     console.log(values);
     toast({
       title: "Agendamento recebido!",
-      description: "Entraremos em contato em breve.",
+      description: "Redirecionando para o calendário de agendamento...",
     });
+    
+    // Redirect to cal.com URL
+    window.open('https://cal.com/eduardo-azzolini-volnistem-knvd4v', '_blank');
+    
     form.reset();
     onOpenChange(false);
   };
