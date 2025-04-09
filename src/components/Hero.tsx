@@ -1,19 +1,15 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
 import BookingDialog from './BookingDialog';
-
 const Hero = () => {
   const [bookingDialogOpen, setBookingDialogOpen] = useState(false);
-
-  return (
-    <section className="pt-20 pb-16 md:pt-28 md:pb-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+  return <section className="pt-20 pb-16 md:pt-28 md:pb-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       <div className="container-custom px-6 md:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-justify">
           <div className="animate-fade-in">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Suporte Academico Avançado para <span className="text-gradient">Ciencias Experimentais</span>
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 lg:text-4xl">
+              Suporte Academico Avançado para <span className="text-gradient">mestrandos e doutorandos em ciências experimentais</span>
             </h1>
             <p className="text-lg text-gray-600 mb-8 md:pr-12">
               Assistência especializada para estudantes de pós-graduação em física e química experimental. Eleve sua pesquisa com orientação especializada, recursos personalizados e suporte abrangente.
@@ -23,11 +19,7 @@ const Hero = () => {
                 Explorar Serviços
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button 
-                variant="outline" 
-                className="border-science-blue text-science-blue hover:bg-science-blue/10 px-8 py-6 text-lg rounded-md"
-                onClick={() => setBookingDialogOpen(true)}
-              >
+              <Button variant="outline" className="border-science-blue text-science-blue hover:bg-science-blue/10 px-8 py-6 text-lg rounded-md" onClick={() => setBookingDialogOpen(true)}>
                 Agendar uma conversa
               </Button>
             </div>
@@ -59,8 +51,6 @@ const Hero = () => {
       </div>
       
       <BookingDialog open={bookingDialogOpen} onOpenChange={setBookingDialogOpen} />
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
