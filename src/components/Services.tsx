@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { FlaskConical, Microscope, BookOpen, FileText, Lightbulb, LineChart, FilePen, Book, Search } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
+
 const services = [{
   icon: <FlaskConical className="h-10 w-10 text-science-blue" />,
   title: "Assistência em Design Experimental",
@@ -38,6 +40,7 @@ const services = [{
   title: "Estratégias de Publicação",
   description: "Consultoria sobre escolha de periódicos relevantes, preparação para processo de revisão e resposta a pareceres de revisores."
 }];
+
 const Services = () => {
   return <section id="services" className="section-padding bg-gray-50">
       <div className="container-custom">
@@ -50,7 +53,7 @@ const Services = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => <Card key={index} className="border border-gray-200 hover:border-science-blue/50 transition-all duration-300 card-hover overflow-hidden">
-              <CardContent className="Adicione uma se\xE7\xE3o de Blog">
+              <CardContent className="p-6">
                 <div className="mb-5 bg-science-blue/10 p-3 inline-flex rounded-md">
                   {service.icon}
                 </div>
@@ -72,4 +75,5 @@ const Services = () => {
       </div>
     </section>;
 };
+
 export default Services;
