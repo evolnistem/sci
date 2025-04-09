@@ -6,7 +6,7 @@ import { ArrowRight, BookOpen, FileText, Microscope } from 'lucide-react';
 
 const serviceExamples = [
   {
-    title: "Análise de Dados Espectroscópicos",
+    title: "Análise de microscopias",
     category: "Análise e Interpretação de Dados",
     icon: <Microscope className="h-8 w-8 text-science-blue" />,
     description: "Apoio na análise e interpretação de dados de espectroscopia Raman, FTIR e UV-Vis para identificação de compostos em pesquisas de química orgânica.",
