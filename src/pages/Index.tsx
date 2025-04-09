@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Services from '@/components/Services';
 import ServiceExamples from '@/components/ServiceExamples';
+import BlogSection from '@/components/BlogSection';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import FAQ from '@/components/FAQ';
 import ContactForm from '@/components/ContactForm';
@@ -19,6 +20,7 @@ const Index = () => {
         <About />
         <Services />
         <ServiceExamples />
+        <BlogSection />
         <WhyChooseUs />
         <FAQ />
         <ContactForm />
