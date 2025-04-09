@@ -27,22 +27,22 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#about" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
+            <a href="/#about" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
               Sobre
             </a>
-            <a href="#services" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
+            <a href="/#services" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
               Serviços
             </a>
             <Link to="/blog" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
               Blog
             </Link>
-            <a href="#why-choose-us" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
+            <a href="/#why-choose-us" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
               Por Que Nos Escolher
             </a>
-            <a href="#faq" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
+            <a href="/#faq" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
               FAQ
             </a>
-            <a href="#contact" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
+            <a href="/#contact" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
               Contato
             </a>
             <Button className="bg-science-blue text-white hover:bg-science-blue/90">
@@ -61,22 +61,22 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && <div className="md:hidden mt-4 py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
-              <a href="#about" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
+              <a href="/#about" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
                 Sobre
               </a>
-              <a href="#services" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
+              <a href="/#services" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
                 Serviços
               </a>
               <Link to="/blog" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
                 Blog
               </Link>
-              <a href="#why-choose-us" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
+              <a href="/#why-choose-us" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
                 Por Que Nos Escolher
               </a>
-              <a href="#faq" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
+              <a href="/#faq" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
                 FAQ
               </a>
-              <a href="#contact" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
+              <a href="/#contact" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
                 Contato
               </a>
               <Button className="bg-science-blue text-white hover:bg-science-blue/90 w-full">
