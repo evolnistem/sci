@@ -109,7 +109,7 @@ const BookingDialog = ({ open, onOpenChange }: BookingDialogProps) => {
                         </Button>
                       </FormControl>
                     </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
+                    <PopoverContent className="w-auto p-0 z-50" align="start">
                       <Calendar
                         mode="single"
                         selected={field.value}
@@ -118,7 +118,7 @@ const BookingDialog = ({ open, onOpenChange }: BookingDialogProps) => {
                           date > new Date() || date < new Date("1900-01-01")
                         }
                         initialFocus
-                        className="pointer-events-auto"
+                        className="p-3 pointer-events-auto"
                       />
                     </PopoverContent>
                   </Popover>
@@ -152,7 +152,7 @@ const BookingDialog = ({ open, onOpenChange }: BookingDialogProps) => {
                         </Button>
                       </FormControl>
                     </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
+                    <PopoverContent className="w-auto p-0 z-50" align="start">
                       <Calendar
                         mode="single"
                         selected={field.value}
@@ -161,7 +161,7 @@ const BookingDialog = ({ open, onOpenChange }: BookingDialogProps) => {
                           date < new Date()
                         }
                         initialFocus
-                        className="pointer-events-auto"
+                        className="p-3 pointer-events-auto"
                       />
                     </PopoverContent>
                   </Popover>
