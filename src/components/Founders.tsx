@@ -23,17 +23,14 @@ const Founders = () => {
             </div>
             <h3 className="text-2xl font-bold mb-2">Dr. Eduardo Azzolini Volnistem</h3>
             <p className="text-science-blue font-medium mb-4">Doutor em Física</p>
-            <p className="text-gray-600">
-              Especialista em física experimental com foco em microscopia e análise de materiais. 
-              Com mais de 10 anos de experiência em pesquisa acadêmica e orientação de estudantes.
-            </p>
+            <p className="text-gray-600">Especialista em física experimental com foco em ciência de materiais. Experiência em sinteses físicas e quimicas de materiais, vasta experiência em microscopia eletrônica de Varredura (MEV) e transmissão (TEM), microscopia de força atômica (AFM) além de técnicas de caracteriazação como Difratometria de Raio X, Espectroscopia Raman, FTIR e diversas caracteriações elétricas e magnéticas. Com mais de 10 anos de experiência em pesquisa acadêmica e orientação de estudantes. Possui ampla experiência em metodologias de pesquisa e publicações em periódicos internacionais. com mais de 30 artigos em diversas áreas do conhecimento.</p>
           </div>
           
           {/* Founder 2 */}
           <div className="bg-white rounded-xl p-8 shadow-md text-center hover:shadow-xl transition-shadow duration-300">
             <div className="flex justify-center mb-6">
               <Avatar className="h-40 w-40 border-4 border-science-purple/20">
-                <AvatarImage src="/placeholder.svg" alt="Dra. Adriane Nascimento Volnistem" />
+                <AvatarImage alt="Dra. Adriane Nascimento Volnistem" src="/lovable-uploads/3b9e0a8f-82be-4010-976f-2e5df85f4ccb.jpg" />
                 <AvatarFallback className="bg-science-purple/10 text-science-purple text-2xl">
                   AV
                 </AvatarFallback>
