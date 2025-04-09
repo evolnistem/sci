@@ -18,7 +18,6 @@ import { useToast } from '@/hooks/use-toast';
 const formSchema = z.object({
   fullName: z.string().min(3, { message: 'Nome deve ter pelo menos 3 caracteres' }),
   birthDate: z.date({ required_error: 'Por favor selecione uma data' }),
-  schedulingDate: z.date({ required_error: 'Por favor selecione uma data para o agendamento' }),
   email: z.string().email({ message: 'E-mail inválido' }),
   whatsapp: z.string().min(10, { message: 'WhatsApp inválido' }),
   institution: z.string().min(2, { message: 'Instituição deve ter pelo menos 2 caracteres' }),
@@ -116,49 +115,6 @@ const BookingDialog = ({ open, onOpenChange }: BookingDialogProps) => {
                         onSelect={field.onChange}
                         disabled={(date) =>
                           date > new Date() || date < new Date("1900-01-01")
-                        }
-                        initialFocus
-                        className="p-3 pointer-events-auto"
-                      />
-                    </PopoverContent>
-                  </Popover>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            
-            <FormField
-              control={form.control}
-              name="schedulingDate"
-              render={({ field }) => (
-                <FormItem className="flex flex-col">
-                  <FormLabel>Data do agendamento</FormLabel>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <FormControl>
-                        <Button
-                          variant="outline"
-                          className={cn(
-                            "pl-3 text-left font-normal",
-                            !field.value && "text-muted-foreground"
-                          )}
-                        >
-                          {field.value ? (
-                            format(field.value, "PPP", { locale: ptBR })
-                          ) : (
-                            <span>Selecione uma data para o agendamento</span>
-                          )}
-                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                        </Button>
-                      </FormControl>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0 z-50" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={field.value}
-                        onSelect={field.onChange}
-                        disabled={(date) =>
-                          date < new Date()
                         }
                         initialFocus
                         className="p-3 pointer-events-auto"
