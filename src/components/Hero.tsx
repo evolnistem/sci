@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
@@ -30,7 +29,7 @@ const Hero = () => {
             
             <div className="relative bg-white p-4 rounded-2xl shadow-xl border border-gray-100 z-10">
               <div className="aspect-[4/3] rounded-xl overflow-hidden bg-gradient-to-br from-science-blue/20 to-science-teal/20 flex items-center justify-center">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Laboratório de pesquisa de pós-graduação" className="w-full h-full object-cover" />
+                <img alt="Laboratório de pesquisa de pós-graduação" className="w-full h-full object-cover" src="/lovable-uploads/c212b70d-23c3-4ce2-8f4c-be833b8608c2.jpg" />
               </div>
               
               <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg border border-gray-100">
