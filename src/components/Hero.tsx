@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
 const Hero = () => {
   return <section className="pt-20 pb-16 md:pt-28 md:pb-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-      <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="Suporte Avan\xE7ado personalizado para acad\xEAmicos em ci\xEAncias experimentais">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-justify">
           <div className="animate-fade-in">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Suporte Academico Avançado para <span className="text-gradient">Ciencias Experimentais</span>
