@@ -14,8 +14,13 @@ const Navbar = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <a href="#" className="text-xl md:text-2xl font-serif font-semibold text-science-dark">
-              Simple<span className="text-science-blue ">Science</span>
+            <a href="#" className="flex items-center text-xl md:text-2xl font-serif font-semibold text-science-dark">
+              <img 
+                src="/lovable-uploads/2d90386a-f3dc-41e7-8f0c-3de6e31813df.png" 
+                alt="SimpleScience Logo" 
+                className="h-10 mr-2"
+              />
+              Simple<span className="text-science-blue">Science</span>
             </a>
           </div>
 

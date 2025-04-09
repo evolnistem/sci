@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
 
@@ -15,8 +14,13 @@ const Footer = () => {
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-serif font-semibold mb-6">
-              Simple<span className="text-science-blue">Consulting</span>
+            <h3 className="flex items-center text-xl font-serif font-semibold mb-6">
+              <img 
+                src="/lovable-uploads/2d90386a-f3dc-41e7-8f0c-3de6e31813df.png" 
+                alt="SimpleScience Logo" 
+                className="h-8 mr-2"
+              />
+              Simple<span className="text-science-blue">Science</span>
             </h3>
             <p className="text-gray-300 mb-6">
               Assistência acadêmica especializada para estudantes de pós-graduação em física e química experimental.
@@ -116,7 +120,7 @@ const Footer = () => {
         
         <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} SimpleConsulting. Todos os direitos reservados.
+            © {new Date().getFullYear()} SimpleScience. Todos os direitos reservados.
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             <a href="#" className="text-gray-400 hover:text-white text-sm">Política de Privacidade</a>
