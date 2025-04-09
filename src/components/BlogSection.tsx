@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Calendar, Clock, GraduationCap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const blogPosts = [
   {
@@ -94,10 +95,10 @@ const BlogSection = () => {
                 <h3 className="text-xl font-bold mb-3 line-clamp-2">{post.title}</h3>
                 <p className="text-gray-600 mb-4 line-clamp-3 flex-grow">{post.description}</p>
                 <div className="mt-auto">
-                  <a href="#" className="inline-flex items-center text-science-blue hover:underline">
+                  <Link to="/blog" className="inline-flex items-center text-science-blue hover:underline">
                     Ler artigo completo
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
@@ -105,10 +106,10 @@ const BlogSection = () => {
         </div>
         
         <div className="mt-12 text-center">
-          <a href="#" className="inline-flex items-center justify-center bg-science-blue text-white hover:bg-science-blue/90 transition-colors duration-300 px-6 py-3 rounded-md font-medium">
+          <Link to="/blog" className="inline-flex items-center justify-center bg-science-blue text-white hover:bg-science-blue/90 transition-colors duration-300 px-6 py-3 rounded-md font-medium">
             <GraduationCap className="mr-2 h-5 w-5" />
             Ver todos os artigos
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,14 +15,14 @@ const Navbar = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <a href="#" className="flex items-center text-xl md:text-2xl font-serif font-semibold text-science-dark">
+            <Link to="/" className="flex items-center text-xl md:text-2xl font-serif font-semibold text-science-dark">
               <img 
                 src="/lovable-uploads/2d90386a-f3dc-41e7-8f0c-3de6e31813df.png" 
                 alt="SimpleScience Logo" 
                 className="h-10 mr-2"
               />
               Simple<span className="text-science-blue">Science</span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -32,6 +33,9 @@ const Navbar = () => {
             <a href="#services" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
               Serviços
             </a>
+            <Link to="/blog" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
+              Blog
+            </Link>
             <a href="#why-choose-us" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
               Por Que Nos Escolher
             </a>
@@ -63,6 +67,9 @@ const Navbar = () => {
               <a href="#services" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
                 Serviços
               </a>
+              <Link to="/blog" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
+                Blog
+              </Link>
               <a href="#why-choose-us" className="text-gray-600 hover:text-science-blue transition-colors duration-300 py-2" onClick={() => setIsMenuOpen(false)}>
                 Por Que Nos Escolher
               </a>
