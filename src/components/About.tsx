@@ -46,29 +46,7 @@ const About = () => {
           <div className="order-1 lg:order-2 relative">
             <div className="absolute -top-10 -right-10 w-64 h-64 bg-science-purple/10 rounded-full filter blur-3xl"></div>
             
-            <div className="relative z-10 grid grid-cols-2 gap-4">
-              <div className="rounded-lg overflow-hidden shadow-md">
-                <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=600" alt="Computador de Pesquisa" className="w-full h-full object-cover" />
-              </div>
-              
-              <div className="rounded-lg overflow-hidden shadow-md mt-8">
-                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600" alt="Programação para Pesquisa" className="w-full h-full object-cover" />
-              </div>
-              
-              <div className="bg-science-blue/10 rounded-lg p-6 flex items-center justify-center">
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-science-blue">10+</p>
-                  <p className="text-sm text-gray-600">Anos de Experiência</p>
-                </div>
-              </div>
-              
-              <div className="bg-science-teal/10 rounded-lg p-6 flex items-center justify-center mt-8">
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-science-teal">500+</p>
-                  <p className="text-sm text-gray-600">Projetos Concluídos</p>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
