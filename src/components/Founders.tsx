@@ -38,10 +38,7 @@ const Founders = () => {
             </div>
             <h3 className="text-2xl font-bold mb-2">Dra. Adriane Nascimento Volnistem</h3>
             <p className="text-science-purple font-medium mb-4">Doutora em Física</p>
-            <p className="text-gray-600">
-              Especialista em espectroscopia e análise de dados complexos. Possui ampla experiência 
-              em metodologias de pesquisa e publicações em periódicos internacionais.
-            </p>
+            <p className="text-gray-600">Especialista em espectroscopia e análise de dados complexos. Experiência em técnicas de espectroscopia como Raman, FTIR, ATR. </p>
           </div>
         </div>
       </div>
