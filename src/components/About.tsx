@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
-
 const About = () => {
-  return (
-    <section id="about" className="section-padding bg-white">
+  return <section id="about" className="section-padding bg-white">
       <div className="container-custom">
         <div className="mb-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Sobre <span className="text-gradient">SimpleScience</span></h2>
@@ -16,9 +13,8 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
             <h3 className="text-2xl font-bold mb-6">Assistência Especializada para Pesquisa Acadêmica Avançada</h3>
-            <p className="text-gray-600 mb-8">
-              Com uma equipe de doutores e especialistas no assunto, oferecemos suporte abrangente adaptado especificamente para ciências experimentais. Nossa missão é ajudar estudantes de pós-graduação a superar desafios complexos em suas pesquisas e atividades acadêmicas.
-            </p>
+            <p className="text-gray-600 mb-8">Você está enfrentando problemas durante seu mestrado e doutorado
+          </p>
             
             <div className="space-y-4">
               <div className="flex items-start">
@@ -52,19 +48,11 @@ const About = () => {
             
             <div className="relative z-10 grid grid-cols-2 gap-4">
               <div className="rounded-lg overflow-hidden shadow-md">
-                <img 
-                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=600" 
-                  alt="Computador de Pesquisa" 
-                  className="w-full h-full object-cover"
-                />
+                <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=600" alt="Computador de Pesquisa" className="w-full h-full object-cover" />
               </div>
               
               <div className="rounded-lg overflow-hidden shadow-md mt-8">
-                <img 
-                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600" 
-                  alt="Programação para Pesquisa" 
-                  className="w-full h-full object-cover"
-                />
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600" alt="Programação para Pesquisa" className="w-full h-full object-cover" />
               </div>
               
               <div className="bg-science-blue/10 rounded-lg p-6 flex items-center justify-center">
@@ -84,8 +72,6 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
