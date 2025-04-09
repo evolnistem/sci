@@ -1,9 +1,12 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
+import BookingDialog from './BookingDialog';
 
 const Hero = () => {
+  const [bookingDialogOpen, setBookingDialogOpen] = useState(false);
+
   return (
     <section className="pt-20 pb-16 md:pt-28 md:pb-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       <div className="container-custom px-6 md:px-8 lg:px-12">
@@ -20,7 +23,11 @@ const Hero = () => {
                 Explorar Serviços
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" className="border-science-blue text-science-blue hover:bg-science-blue/10 px-8 py-6 text-lg rounded-md">
+              <Button 
+                variant="outline" 
+                className="border-science-blue text-science-blue hover:bg-science-blue/10 px-8 py-6 text-lg rounded-md"
+                onClick={() => setBookingDialogOpen(true)}
+              >
                 Agendar uma conversa
               </Button>
             </div>
@@ -50,6 +57,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      
+      <BookingDialog open={bookingDialogOpen} onOpenChange={setBookingDialogOpen} />
     </section>
   );
 };
