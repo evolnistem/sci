@@ -25,7 +25,7 @@ const techniques = [{
   image: "https://images.unsplash.com/photo-1554475900-0a0350e3fc7b?auto=format&fit=crop&q=80&w=600"
 }, {
   name: "Microscopia de força atômica",
-  image: "/lovable-uploads/e7e77300-d664-4b88-84f5-6169ce2d98b4.png"
+  image: "/lovable-uploads/ac0c01fc-6250-428d-ad68-eda90cb74c33.png"
 }];
 
 const DataAnalysis = () => {
