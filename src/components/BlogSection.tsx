@@ -1,9 +1,11 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Calendar, Clock, GraduationCap } from 'lucide-react';
+import { ArrowRight, Calendar, Clock, GraduationCap, FilePlus } from 'lucide-react';
 import { blogPosts } from '@/data/blogPosts';
+import { Button } from "@/components/ui/button";
 
 // We'll use the first 6 blog posts for the home page
 const featuredBlogPosts = blogPosts.slice(0, 6);
@@ -19,11 +21,15 @@ const BlogSection = () => {
           </p>
         </div>
         
-        <div className="mt-12 text-center">
+        <div className="mt-12 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
           <Link to="/blog" className="inline-flex items-center justify-center bg-science-blue text-white hover:bg-science-blue/90 transition-colors duration-300 px-6 py-3 rounded-md font-medium">
             <GraduationCap className="mr-2 h-5 w-5" />
             Ver todos os artigos
           </Link>
+          <Button variant="outline" className="border-science-blue text-science-blue hover:bg-science-blue/10">
+            <FilePlus className="mr-2 h-5 w-5" />
+            Novo Artigo
+          </Button>
         </div>
       </div>
     </section>;
