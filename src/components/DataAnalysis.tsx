@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Microscope, Atom } from 'lucide-react';
 const techniques = [{
@@ -23,8 +24,9 @@ const techniques = [{
   image: "https://images.unsplash.com/photo-1554475900-0a0350e3fc7b?auto=format&fit=crop&q=80&w=600"
 }, {
   name: "Microscopia de força atômica",
-  image: "https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&q=80&w=600"
+  image: "/lovable-uploads/e7e77300-d664-4b88-84f5-6169ce2d98b4.png"
 }];
+
 const DataAnalysis = () => {
   return <section id="data-analysis" className="section-padding bg-gray-50">
       <div className="container-custom">
@@ -60,3 +62,4 @@ const DataAnalysis = () => {
     </section>;
 };
 export default DataAnalysis;
+
