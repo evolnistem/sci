@@ -3,14 +3,38 @@ import React from 'react';
 import { Microscope, Atom } from 'lucide-react';
 
 const techniques = [
-  "Difratometria de Raios X",
-  "Microscopia Eletrônica de Varredura e Transmissão",
-  "Espectroscopia Raman",
-  "FT-IR",
-  "ATR",
-  "Análises magnéticas",
-  "UV-Vis",
-  "Microscopia de força atômica"
+  {
+    name: "Difratometria de Raios X",
+    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    name: "Microscopia Eletrônica de Varredura e Transmissão",
+    image: "https://images.unsplash.com/photo-1516972810927-80185027ca84?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    name: "Espectroscopia Raman",
+    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    name: "FT-IR",
+    image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    name: "ATR",
+    image: "https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    name: "Análises magnéticas",
+    image: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    name: "UV-Vis",
+    image: "https://images.unsplash.com/photo-1554475900-0a0350e3fc7b?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    name: "Microscopia de força atômica",
+    image: "https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&q=80&w=600"
+  }
 ];
 
 const DataAnalysis = () => {
@@ -26,31 +50,29 @@ const DataAnalysis = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="flex items-center gap-4 mb-8">
-              <Microscope className="h-8 w-8 text-science-blue" />
-              <Atom className="h-8 w-8 text-science-blue" />
-            </div>
-            <ul className="space-y-4">
-              {techniques.map((technique, index) => (
-                <li key={index} className="flex items-center space-x-3 group">
+        <div className="flex flex-col items-center">
+          <div className="flex items-center gap-4 mb-8">
+            <Microscope className="h-8 w-8 text-science-blue" />
+            <Atom className="h-8 w-8 text-science-blue" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {techniques.map((technique, index) => (
+              <div key={index} className="flex flex-col items-center space-y-4 group">
+                <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-science-blue rounded-full group-hover:scale-125 transition-transform" />
                   <span className="text-lg text-gray-700 group-hover:text-science-blue transition-colors">
-                    {technique}
+                    {technique.name}
                   </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
-            <img
-              src="https://images.unsplash.com/photo-1518770660439-4636190af475"
-              alt="Equipamento de análise científica"
-              className="object-cover w-full h-full"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                </div>
+                <div className="w-full h-48 overflow-hidden rounded-lg shadow-lg transition-transform group-hover:scale-105">
+                  <img
+                    src={technique.image}
+                    alt={technique.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -59,4 +81,3 @@ const DataAnalysis = () => {
 };
 
 export default DataAnalysis;
-
