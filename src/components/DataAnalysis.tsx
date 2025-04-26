@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { Microscope, Atom } from 'lucide-react';
 
 const techniques = [{
   name: "Difratometria de Raios X",
-  image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=600"
+  image: "/lovable-uploads/042c371c-6cd7-4520-807f-81e779584251.png"
 }, {
   name: "Microscopia Eletrônica de Varredura e Transmissão",
   image: "https://images.unsplash.com/photo-1516972810927-80185027ca84?auto=format&fit=crop&q=80&w=600"
@@ -29,10 +28,6 @@ const techniques = [{
 }];
 
 const DataAnalysis = () => {
-  React.useEffect(() => {
-    console.log("Attempting to load AFM image from:", techniques[7].image);
-  }, []);
-
   return (
     <section id="data-analysis" className="section-padding bg-gray-50">
       <div className="container-custom">
@@ -44,7 +39,7 @@ const DataAnalysis = () => {
             Oferecemos análises avançadas utilizando técnicas especializadas e equipamentos de última geração para sua pesquisa científica.
           </p>
         </div>
-
+        
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-4 mb-8">
             <Microscope className="h-8 w-8 text-science-blue" />
@@ -63,7 +58,7 @@ const DataAnalysis = () => {
                   <img 
                     src={technique.image} 
                     alt={technique.name} 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain bg-white p-2"
                     onError={(e) => {
                       console.error(`Error loading image for ${technique.name}:`, e);
                       e.currentTarget.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600";
