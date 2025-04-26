@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
@@ -26,10 +25,7 @@ const BlogSection = () => {
             <GraduationCap className="mr-2 h-5 w-5" />
             Ver todos os artigos
           </Link>
-          <Button variant="outline" className="border-science-blue text-science-blue hover:bg-science-blue/10">
-            <FilePlus className="mr-2 h-5 w-5" />
-            Novo Artigo
-          </Button>
+          
         </div>
       </div>
     </section>;
