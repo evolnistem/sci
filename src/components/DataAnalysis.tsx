@@ -1,33 +1,63 @@
-import React from 'react';
-import { Microscope, Atom } from 'lucide-react';
 
-const techniques = [{
+import React, { useState } from 'react';
+import { Microscope, Atom, Edit } from 'lucide-react';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+
+const initialTechniques = [{
   name: "Difratometria de Raios X",
-  image: "/lovable-uploads/b7184288-60e5-40c9-b146-61b253ecd6d3.png"
+  image: "/lovable-uploads/b7184288-60e5-40c9-b146-61b253ecd6d3.png",
+  description: "Técnica de caracterização que permite identificar estruturas cristalinas através da difração de raios X."
 }, {
   name: "Microscopia Eletrônica de Varredura e Transmissão",
-  image: "https://images.unsplash.com/photo-1516972810927-80185027ca84?auto=format&fit=crop&q=80&w=600"
+  image: "https://images.unsplash.com/photo-1516972810927-80185027ca84?auto=format&fit=crop&q=80&w=600",
+  description: "Análise morfológica e estrutural de materiais em escala nanométrica."
 }, {
   name: "Espectroscopia Raman",
-  image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=600"
+  image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=600",
+  description: "Técnica espectroscópica que fornece informações sobre modos vibracionais moleculares."
 }, {
   name: "FT-IR",
-  image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=600"
+  image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=600",
+  description: "Espectroscopia no infravermelho por transformada de Fourier para análise de grupos funcionais."
 }, {
   name: "ATR",
-  image: "https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&q=80&w=600"
+  image: "https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&q=80&w=600",
+  description: "Reflexão total atenuada para análise de superfícies e filmes finos."
 }, {
   name: "Análises magnéticas",
-  image: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=600"
+  image: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=600",
+  description: "Caracterização das propriedades magnéticas de materiais."
 }, {
   name: "UV-Vis",
-  image: "https://images.unsplash.com/photo-1554475900-0a0350e3fc7b?auto=format&fit=crop&q=80&w=600"
+  image: "https://images.unsplash.com/photo-1554475900-0a0350e3fc7b?auto=format&fit=crop&q=80&w=600",
+  description: "Espectroscopia no ultravioleta-visível para análise de propriedades ópticas."
 }, {
   name: "Microscopia de força atômica",
-  image: "/lovable-uploads/ac0c01fc-6250-428d-ad68-eda90cb74c33.png"
+  image: "/lovable-uploads/ac0c01fc-6250-428d-ad68-eda90cb74c33.png",
+  description: "Análise topográfica de superfícies com resolução atômica."
 }];
 
 const DataAnalysis = () => {
+  const [techniques, setTechniques] = useState(initialTechniques);
+  const [editingIndex, setEditingIndex] = useState<number | null>(null);
+  const [tempDescription, setTempDescription] = useState("");
+
+  const handleEdit = (index: number) => {
+    setEditingIndex(index);
+    setTempDescription(techniques[index].description);
+  };
+
+  const handleSave = (index: number) => {
+    const updatedTechniques = [...techniques];
+    updatedTechniques[index] = {
+      ...updatedTechniques[index],
+      description: tempDescription
+    };
+    setTechniques(updatedTechniques);
+    setEditingIndex(null);
+  };
+
   return (
     <section id="data-analysis" className="section-padding bg-gray-50">
       <div className="container-custom">
@@ -64,6 +94,35 @@ const DataAnalysis = () => {
                       e.currentTarget.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600";
                     }}
                   />
+                </div>
+                <div className="w-full p-4 bg-white rounded-lg shadow">
+                  {editingIndex === index ? (
+                    <div className="space-y-4">
+                      <Textarea
+                        value={tempDescription}
+                        onChange={(e) => setTempDescription(e.target.value)}
+                        className="min-h-[100px]"
+                      />
+                      <Button 
+                        onClick={() => handleSave(index)}
+                        className="w-full"
+                      >
+                        Salvar Descrição
+                      </Button>
+                    </div>
+                  ) : (
+                    <div className="relative group">
+                      <p className="text-gray-600 text-sm">{technique.description}</p>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="absolute top-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                        onClick={() => handleEdit(index)}
+                      >
+                        <Edit className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
