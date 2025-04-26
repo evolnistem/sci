@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Microscope, Atom } from 'lucide-react';
+
 const techniques = [{
   name: "Difratometria de Raios X",
   image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=600"
@@ -28,7 +29,8 @@ const techniques = [{
 }];
 
 const DataAnalysis = () => {
-  return <section id="data-analysis" className="section-padding bg-gray-50">
+  return (
+    <section id="data-analysis" className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-serif font-bold text-science-dark mb-6 animate-slide-up">
@@ -45,7 +47,8 @@ const DataAnalysis = () => {
             <Atom className="h-8 w-8 text-science-blue" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {techniques.map((technique, index) => <div key={index} className="flex flex-col items-center space-y-4 group">
+            {techniques.map((technique, index) => (
+              <div key={index} className="flex flex-col items-center space-y-4 group">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-science-blue rounded-full group-hover:scale-125 transition-transform" />
                   <span className="text-lg text-gray-700 group-hover:text-science-blue transition-colors">
@@ -53,13 +56,23 @@ const DataAnalysis = () => {
                   </span>
                 </div>
                 <div className="w-full h-48 overflow-hidden rounded-lg shadow-lg transition-transform group-hover:scale-105">
-                  <img src={technique.image} alt={technique.name} className="w-full h-full object-cover" />
+                  <img 
+                    src={technique.image} 
+                    alt={technique.name} 
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      console.error(`Error loading image for ${technique.name}:`, e);
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600";
+                    }}
+                  />
                 </div>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
-export default DataAnalysis;
 
+export default DataAnalysis;
