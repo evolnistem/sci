@@ -29,6 +29,10 @@ const techniques = [{
 }];
 
 const DataAnalysis = () => {
+  React.useEffect(() => {
+    console.log("Attempting to load AFM image from:", techniques[7].image);
+  }, []);
+
   return (
     <section id="data-analysis" className="section-padding bg-gray-50">
       <div className="container-custom">
