@@ -1,8 +1,21 @@
+
 import React from 'react';
 import { Microscope, Atom } from 'lucide-react';
-const techniques = ["Difratometria de Raios X", "Microscopia Eletrônica de Varredura e Transmissão", "Espectroscopia Raman", "FT-IR", "ATR", "Análises magnéticas", "UV-Vis", "Microscopia de força atômica"];
+
+const techniques = [
+  "Difratometria de Raios X",
+  "Microscopia Eletrônica de Varredura e Transmissão",
+  "Espectroscopia Raman",
+  "FT-IR",
+  "ATR",
+  "Análises magnéticas",
+  "UV-Vis",
+  "Microscopia de força atômica"
+];
+
 const DataAnalysis = () => {
-  return <section id="data-analysis" className="section-padding bg-gray-50">
+  return (
+    <section id="data-analysis" className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-serif font-bold text-science-dark mb-6 animate-slide-up">
@@ -20,21 +33,30 @@ const DataAnalysis = () => {
               <Atom className="h-8 w-8 text-science-blue" />
             </div>
             <ul className="space-y-4">
-              {techniques.map((technique, index) => <li key={index} className="flex items-center space-x-3 group">
+              {techniques.map((technique, index) => (
+                <li key={index} className="flex items-center space-x-3 group">
                   <div className="w-2 h-2 bg-science-blue rounded-full group-hover:scale-125 transition-transform" />
                   <span className="text-lg text-gray-700 group-hover:text-science-blue transition-colors">
                     {technique}
                   </span>
-                </li>)}
+                </li>
+              ))}
             </ul>
           </div>
           
           <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="Equipamento de análise científica" className="object-cover w-full h-full" />
-            
+            <img
+              src="https://images.unsplash.com/photo-1518770660439-4636190af475"
+              alt="Equipamento de análise científica"
+              className="object-cover w-full h-full"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default DataAnalysis;
+
