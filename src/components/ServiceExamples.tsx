@@ -25,54 +25,6 @@ const serviceExamples = [{
   result: "Fornecimento de 45 referências relevantes e um resumo analítico de 25 páginas que auxiliou o direcionamento da pesquisa."
 }];
 const ServiceExamples = () => {
-  return <section id="service-examples" className="section-padding bg-white">
-      <div className="container-custom">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Exemplos de <span className="text-gradient">Projetos</span></h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Veja como nossos serviços têm ajudado estudantes a alcançar resultados excepcionais em seus projetos de pesquisa.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {serviceExamples.map((example, index) => <Card key={index} className="border border-gray-200 hover:border-science-blue/50 transition-all duration-300 card-hover overflow-hidden">
-              <div className="h-56 overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
-                <img src={example.imageUrl} alt={example.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
-                <Badge className="absolute top-4 right-4 z-20 bg-science-blue hover:bg-science-blue/90">
-                  {example.category}
-                </Badge>
-              </div>
-              <CardContent className="p-6">
-                <div className="mb-4 bg-science-blue/10 p-3 inline-flex rounded-md">
-                  {example.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-3">{example.title}</h3>
-                <p className="text-gray-600 mb-4">{example.description}</p>
-                <div className="border-t border-gray-100 pt-4 mt-4">
-                  
-                  
-                </div>
-                <div className="mt-6 flex justify-end">
-                  <a href="#contact" className="inline-flex items-center text-science-blue hover:underline">
-                    Solicitar serviço similar
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </div>
-              </CardContent>
-            </Card>)}
-        </div>
-        
-        <div className="mt-12 text-center">
-          <p className="mb-6 text-gray-600">
-            Estes são apenas alguns exemplos dos muitos projetos bem-sucedidos que realizamos.
-          </p>
-          <a href="#services" className="inline-flex items-center text-science-blue hover:underline font-medium">
-            Ver todos os serviços disponíveis
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </a>
-        </div>
-      </div>
-    </section>;
+  return;
 };
 export default ServiceExamples;
