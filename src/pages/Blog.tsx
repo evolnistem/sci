@@ -20,7 +20,6 @@ const Blog = () => {
     const matchesCategory = selectedCategory === '' || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
-  
   return <div className="min-h-screen flex flex-col">
       <Navbar />
       <main>
@@ -28,7 +27,8 @@ const Blog = () => {
           <div className="container-custom">
             <div className="text-center mb-16">
               <h1 className="text-5xl md:text-6xl font-serif font-bold text-science-dark mb-6 animate-slide-up">
-                Blog <span className="text-gradient">SimpleScience</span>
+                Blog <span className="text-gradient">
+              </span>
               </h1>
               
               <p className="text-gray-600 max-w-2xl mx-auto">
@@ -56,15 +56,10 @@ const Blog = () => {
             
             {/* Blog Posts Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.map((post, index) => (
-                <Card key={index} className="border border-gray-200 hover:border-science-blue/50 transition-all duration-300 card-hover overflow-hidden flex flex-col">
+              {filteredPosts.map((post, index) => <Card key={index} className="border border-gray-200 hover:border-science-blue/50 transition-all duration-300 card-hover overflow-hidden flex flex-col">
                   <div className="h-48 overflow-hidden relative">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-                    <img 
-                      src={post.imageUrl} 
-                      alt={post.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                    />
+                    <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                     <Badge className="absolute top-4 left-4 z-20 bg-science-blue hover:bg-science-blue/90">
                       {post.category}
                     </Badge>
@@ -89,8 +84,7 @@ const Blog = () => {
                       </Link>
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
             
             {/* Pagination */}
