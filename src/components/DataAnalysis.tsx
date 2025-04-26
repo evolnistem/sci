@@ -3,7 +3,7 @@ import { Microscope, Atom } from 'lucide-react';
 
 const techniques = [{
   name: "Difratometria de Raios X",
-  image: "/lovable-uploads/042c371c-6cd7-4520-807f-81e779584251.png"
+  image: "/lovable-uploads/b7184288-60e5-40c9-b146-61b253ecd6d3.png"
 }, {
   name: "Microscopia Eletrônica de Varredura e Transmissão",
   image: "https://images.unsplash.com/photo-1516972810927-80185027ca84?auto=format&fit=crop&q=80&w=600"
@@ -54,11 +54,11 @@ const DataAnalysis = () => {
                     {technique.name}
                   </span>
                 </div>
-                <div className="w-full h-48 overflow-hidden rounded-lg shadow-lg transition-transform group-hover:scale-105">
+                <div className="w-full h-64 overflow-hidden rounded-lg shadow-lg transition-transform group-hover:scale-105">
                   <img 
                     src={technique.image} 
                     alt={technique.name} 
-                    className="w-full h-full object-contain bg-white p-2"
+                    className="w-full h-full object-contain bg-white p-4"
                     onError={(e) => {
                       console.error(`Error loading image for ${technique.name}:`, e);
                       e.currentTarget.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600";
