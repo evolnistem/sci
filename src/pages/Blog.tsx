@@ -20,7 +20,7 @@ const Blog = () => {
     const matchesCategory = selectedCategory === '' || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
-  return <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col relative">
       <Navbar />
       <main>
         <section className="bg-gray-50 py-16">
@@ -115,6 +115,13 @@ const Blog = () => {
         </section>
       </main>
       <Footer />
+      
+      {/* Decorative Chemistry Icon */}
+      <img 
+        src="/lovable-uploads/ef4383e1-a7b3-4b9b-a6c6-efcc680f41b6.png" 
+        alt="Chemistry Icon" 
+        className="fixed bottom-32 right-32 w-32 h-32 opacity-20 pointer-events-none"
+      />
     </div>;
 };
 export default Blog;
