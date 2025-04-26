@@ -12,7 +12,7 @@ const BlogSection = () => {
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-serif font-bold text-science-dark mb-6 animate-slide-up">
-            Blog <span className="text-gradient">SimpleScience</span>
+            Blog 
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Artigos, dicas e recursos para ajudar você em sua jornada na pós-graduação em ciências exatas e experimentais.

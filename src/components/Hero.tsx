@@ -34,17 +34,7 @@ const Hero = () => {
                 <img alt="Laboratório de pesquisa de pós-graduação" className="w-full h-full object-cover" src="/lovable-uploads/c212b70d-23c3-4ce2-8f4c-be833b8608c2.jpg" />
               </div>
               
-              <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg border border-gray-100">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 rounded-full bg-science-blue flex items-center justify-center text-white font-bold">
-                    96%
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium">Taxa de Sucesso</p>
-                    <p className="text-xs text-gray-500">Entre nossos clientes</p>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
