@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -46,6 +45,8 @@ const initialTestimonials: Testimonial[] = [
 ];
 
 type TestimonialFormValues = Omit<Testimonial, 'id'>;
+
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 const VideoTestimonials = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>(initialTestimonials);
@@ -175,105 +176,109 @@ const VideoTestimonials = () => {
                   <p className="text-gray-600 italic">&ldquo;{testimonial.quote}&rdquo;</p>
                 </div>
               </div>
-              <Button 
-                variant="ghost" 
-                size="icon"
-                className="absolute top-2 right-2 bg-white/80 hover:bg-white"
-                onClick={() => openEditDialog(testimonial)}
-              >
-                <Edit className="h-4 w-4" />
-              </Button>
+              {isDevelopment && (
+                <Button 
+                  variant="ghost" 
+                  size="icon"
+                  className="absolute top-2 right-2 bg-white/80 hover:bg-white"
+                  onClick={() => openEditDialog(testimonial)}
+                >
+                  <Edit className="h-4 w-4" />
+                </Button>
+              )}
             </Card>
           ))}
         </div>
       </div>
 
-      <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="sm:max-w-[525px]">
-          <DialogHeader>
-            <DialogTitle>Editar Depoimento</DialogTitle>
-          </DialogHeader>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-              <FormField
-                control={form.control}
-                name="clientName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Nome do Cliente</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Nome do Cliente" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="role"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Cargo/Função</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Cargo ou Função" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="quote"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Depoimento</FormLabel>
-                    <FormControl>
-                      <Textarea 
-                        placeholder="O que o cliente disse sobre nossos serviços" 
-                        className="min-h-[100px]" 
-                        {...field} 
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="videoUrl"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>URL do Vídeo</FormLabel>
-                    <FormControl>
-                      <Input placeholder="https://example.com/video.mp4" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="thumbnail"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>URL da Miniatura</FormLabel>
-                    <FormControl>
-                      <Input placeholder="https://example.com/thumbnail.jpg" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <DialogFooter>
-                <Button type="button" variant="outline" onClick={() => setIsEditDialogOpen(false)}>
-                  Cancelar
-                </Button>
-                <Button type="submit">Salvar Alterações</Button>
-              </DialogFooter>
-            </form>
-          </Form>
-        </DialogContent>
-      </Dialog>
+      {isDevelopment && (
+        <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
+          <DialogContent className="sm:max-w-[525px]">
+            <DialogHeader>
+              <DialogTitle>Editar Depoimento</DialogTitle>
+            </DialogHeader>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="clientName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Nome do Cliente</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Nome do Cliente" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="role"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Cargo/Função</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Cargo ou Função" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="quote"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Depoimento</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="O que o cliente disse sobre nossos serviços" 
+                          className="min-h-[100px]" 
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="videoUrl"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>URL do Vídeo</FormLabel>
+                      <FormControl>
+                        <Input placeholder="https://example.com/video.mp4" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="thumbnail"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>URL da Miniatura</FormLabel>
+                      <FormControl>
+                        <Input placeholder="https://example.com/thumbnail.jpg" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <DialogFooter>
+                  <Button type="button" variant="outline" onClick={() => setIsEditDialogOpen(false)}>
+                    Cancelar
+                  </Button>
+                  <Button type="submit">Salvar Alterações</Button>
+                </DialogFooter>
+              </form>
+            </Form>
+          </DialogContent>
+        </Dialog>
+      )}
     </section>
   );
 };
