@@ -1,24 +1,16 @@
 
 import React from 'react';
-import { Card, CardContent } from "@/components/ui/card";
-import { ChartBar, ChartPie, Database } from 'lucide-react';
+import { Microscope, Atom } from 'lucide-react';
 
-const analysisTypes = [
-  {
-    title: "Análise Estatística",
-    description: "Aplicação de métodos estatísticos avançados para validar hipóteses e identificar padrões significativos em seus dados experimentais.",
-    icon: <ChartBar className="h-12 w-12 text-science-blue" />
-  },
-  {
-    title: "Visualização de Dados",
-    description: "Criação de gráficos e visualizações interativas para comunicar resultados de forma clara e impactante em suas publicações.",
-    icon: <ChartPie className="h-12 w-12 text-science-blue" />
-  },
-  {
-    title: "Modelagem de Dados",
-    description: "Desenvolvimento de modelos matemáticos e computacionais para interpretar e prever comportamentos em seus experimentos.",
-    icon: <Database className="h-12 w-12 text-science-blue" />
-  }
+const techniques = [
+  "Difratometria de Raios X",
+  "Microscopia Eletrônica de Varredura e Transmissão",
+  "Espectroscopia Raman",
+  "FT-IR",
+  "ATR",
+  "Análises magnéticas",
+  "UV-Vis",
+  "Microscopia de força atômica"
 ];
 
 const DataAnalysis = () => {
@@ -30,26 +22,36 @@ const DataAnalysis = () => {
             Análise de <span className="text-gradient">Dados</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Transforme seus dados experimentais em insights valiosos com nossas soluções especializadas em análise de dados para pesquisas científicas.
+            Oferecemos análises avançadas utilizando técnicas especializadas e equipamentos de última geração para sua pesquisa científica.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-          {analysisTypes.map((type, index) => (
-            <Card key={index} className="bg-white hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-8 text-center">
-                <div className="flex justify-center mb-6">
-                  {type.icon}
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-science-dark">
-                  {type.title}
-                </h3>
-                <p className="text-gray-600">
-                  {type.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            <div className="flex items-center gap-4 mb-8">
+              <Microscope className="h-8 w-8 text-science-blue" />
+              <Atom className="h-8 w-8 text-science-blue" />
+            </div>
+            <ul className="space-y-4">
+              {techniques.map((technique, index) => (
+                <li key={index} className="flex items-center space-x-3 group">
+                  <div className="w-2 h-2 bg-science-blue rounded-full group-hover:scale-125 transition-transform" />
+                  <span className="text-lg text-gray-700 group-hover:text-science-blue transition-colors">
+                    {technique}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+            <img
+              src="https://images.unsplash.com/photo-1518770660439-4636190af475"
+              alt="Equipamento de análise científica"
+              className="object-cover w-full h-full"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+          </div>
         </div>
       </div>
     </section>
@@ -57,3 +59,4 @@ const DataAnalysis = () => {
 };
 
 export default DataAnalysis;
+
