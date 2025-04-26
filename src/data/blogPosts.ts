@@ -1,5 +1,13 @@
-
 export const blogPosts = [
+  {
+    title: "Como escolher um tópico de pesquisa para sua pós-graduação",
+    slug: "como-escolher-topico-pesquisa-pos-graduacao",
+    category: "Metodologia",
+    description: "Guia prático para selecionar um tema de pesquisa relevante, viável e alinhado com seus interesses acadêmicos e profissionais.",
+    imageUrl: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800",
+    readTime: "7 min",
+    date: "26 Apr 2025"
+  },
   {
     title: "Como escolher o orientador ideal para sua dissertação",
     slug: "como-escolher-orientador-ideal-dissertacao",
