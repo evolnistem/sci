@@ -129,10 +129,10 @@ const VideoTestimonials = () => {
           {testimonials.map((testimonial) => (
             <Card 
               key={testimonial.id}
-              className="overflow-hidden hover:shadow-lg transition-all duration-300 relative"
+              className="overflow-hidden hover:shadow-lg transition-all duration-300 relative flex flex-col"
             >
               <div 
-                className="relative cursor-pointer aspect-video" 
+                className="relative cursor-pointer aspect-[9/16] w-full" 
                 onClick={() => handleVideoClick(testimonial.id)}
               >
                 <video
@@ -168,10 +168,12 @@ const VideoTestimonials = () => {
                   </div>
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="font-bold text-lg mb-2">{testimonial.clientName}</h3>
-                <p className="text-sm text-gray-500 mb-4">{testimonial.role}</p>
-                <p className="text-gray-600 italic">&ldquo;{testimonial.quote}&rdquo;</p>
+              <div className="p-6 flex-grow flex flex-col justify-between">
+                <div>
+                  <h3 className="font-bold text-lg mb-2">{testimonial.clientName}</h3>
+                  <p className="text-sm text-gray-500 mb-4">{testimonial.role}</p>
+                  <p className="text-gray-600 italic">&ldquo;{testimonial.quote}&rdquo;</p>
+                </div>
               </div>
               <Button 
                 variant="ghost" 
