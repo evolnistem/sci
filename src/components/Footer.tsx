@@ -61,24 +61,8 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-6">Nossos Serviços</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Design Experimental</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Análise de Dados</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Suporte para Teses</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Revisão de Literatura</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Métodos de Pesquisa</a>
-              </li>
-            </ul>
+            
+            
           </div>
           
           
