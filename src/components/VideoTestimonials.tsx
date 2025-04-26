@@ -2,7 +2,12 @@
 import React, { useState, useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
+import { Play, Pause, Volume2, VolumeX, Edit } from 'lucide-react';
+import { useForm } from 'react-hook-form';
 
 interface Testimonial {
   id: number;
@@ -13,7 +18,7 @@ interface Testimonial {
   thumbnail: string;
 }
 
-const testimonials: Testimonial[] = [
+const initialTestimonials: Testimonial[] = [
   {
     id: 1,
     clientName: "Dra. Maria Silva",
@@ -40,10 +45,25 @@ const testimonials: Testimonial[] = [
   }
 ];
 
+type TestimonialFormValues = Omit<Testimonial, 'id'>;
+
 const VideoTestimonials = () => {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>(initialTestimonials);
   const [activeVideo, setActiveVideo] = useState<number | null>(null);
   const [isMuted, setIsMuted] = useState(true);
+  const [editingTestimonial, setEditingTestimonial] = useState<Testimonial | null>(null);
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const videoRefs = useRef<{ [key: number]: HTMLVideoElement }>({});
+  
+  const form = useForm<TestimonialFormValues>({
+    defaultValues: {
+      clientName: '',
+      role: '',
+      quote: '',
+      videoUrl: '',
+      thumbnail: ''
+    }
+  });
 
   const handleVideoClick = (id: number) => {
     if (activeVideo === id) {
@@ -70,6 +90,29 @@ const VideoTestimonials = () => {
     setIsMuted(!isMuted);
   };
 
+  const openEditDialog = (testimonial: Testimonial) => {
+    setEditingTestimonial(testimonial);
+    form.reset({
+      clientName: testimonial.clientName,
+      role: testimonial.role,
+      quote: testimonial.quote,
+      videoUrl: testimonial.videoUrl,
+      thumbnail: testimonial.thumbnail
+    });
+    setIsEditDialogOpen(true);
+  };
+
+  const onSubmit = (data: TestimonialFormValues) => {
+    if (editingTestimonial) {
+      const updatedTestimonials = testimonials.map(t => 
+        t.id === editingTestimonial.id ? { ...t, ...data } : t
+      );
+      setTestimonials(updatedTestimonials);
+      setIsEditDialogOpen(false);
+      setEditingTestimonial(null);
+    }
+  };
+
   return (
     <section id="testimonials" className="section-padding bg-white">
       <div className="container-custom">
@@ -86,7 +129,7 @@ const VideoTestimonials = () => {
           {testimonials.map((testimonial) => (
             <Card 
               key={testimonial.id}
-              className="overflow-hidden hover:shadow-lg transition-all duration-300"
+              className="overflow-hidden hover:shadow-lg transition-all duration-300 relative"
             >
               <div 
                 className="relative cursor-pointer aspect-video" 
@@ -130,10 +173,105 @@ const VideoTestimonials = () => {
                 <p className="text-sm text-gray-500 mb-4">{testimonial.role}</p>
                 <p className="text-gray-600 italic">&ldquo;{testimonial.quote}&rdquo;</p>
               </div>
+              <Button 
+                variant="ghost" 
+                size="icon"
+                className="absolute top-2 right-2 bg-white/80 hover:bg-white"
+                onClick={() => openEditDialog(testimonial)}
+              >
+                <Edit className="h-4 w-4" />
+              </Button>
             </Card>
           ))}
         </div>
       </div>
+
+      <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
+        <DialogContent className="sm:max-w-[525px]">
+          <DialogHeader>
+            <DialogTitle>Editar Depoimento</DialogTitle>
+          </DialogHeader>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <FormField
+                control={form.control}
+                name="clientName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Nome do Cliente</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Nome do Cliente" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="role"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Cargo/Função</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Cargo ou Função" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="quote"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Depoimento</FormLabel>
+                    <FormControl>
+                      <Textarea 
+                        placeholder="O que o cliente disse sobre nossos serviços" 
+                        className="min-h-[100px]" 
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="videoUrl"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>URL do Vídeo</FormLabel>
+                    <FormControl>
+                      <Input placeholder="https://example.com/video.mp4" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="thumbnail"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>URL da Miniatura</FormLabel>
+                    <FormControl>
+                      <Input placeholder="https://example.com/thumbnail.jpg" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <DialogFooter>
+                <Button type="button" variant="outline" onClick={() => setIsEditDialogOpen(false)}>
+                  Cancelar
+                </Button>
+                <Button type="submit">Salvar Alterações</Button>
+              </DialogFooter>
+            </form>
+          </Form>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
