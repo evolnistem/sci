@@ -55,7 +55,37 @@ const Blog = () => {
             </div>
             
             {/* Blog Posts Grid */}
-            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredPosts.map((post, index) => <Card key={index} className="border border-gray-200 hover:border-science-blue/50 transition-all duration-300 card-hover overflow-hidden flex flex-col">
+                  <div className="h-48 overflow-hidden relative">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                    <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                    <Badge className="absolute top-4 left-4 z-20 bg-science-blue hover:bg-science-blue/90">
+                      {post.category}
+                    </Badge>
+                  </div>
+                  <CardContent className="p-6 flex-grow flex flex-col">
+                    <div className="flex items-center text-gray-500 text-sm mb-3 space-x-4">
+                      <div className="flex items-center">
+                        <Calendar className="h-4 w-4 mr-1" />
+                        <span>{post.date}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Clock className="h-4 w-4 mr-1" />
+                        <span>{post.readTime} de leitura</span>
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 line-clamp-2">{post.title}</h3>
+                    <p className="text-gray-600 mb-4 line-clamp-3 flex-grow">{post.description}</p>
+                    <div className="mt-auto">
+                      <Link to={`/blog/${post.slug}`} className="inline-flex items-center text-science-blue hover:underline">
+                        Ler artigo completo
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>)}
+            </div>
             
             {/* Pagination */}
             <div className="mt-12">
@@ -87,7 +117,11 @@ const Blog = () => {
       <Footer />
       
       {/* Decorative Chemistry Icon */}
-      <img src="/lovable-uploads/ef4383e1-a7b3-4b9b-a6c6-efcc680f41b6.png" alt="Chemistry Icon" className="fixed bottom-32 right-32 w-32 h-32 opacity-20 pointer-events-none" />
+      <img 
+        src="/lovable-uploads/ef4383e1-a7b3-4b9b-a6c6-efcc680f41b6.png" 
+        alt="Chemistry Icon" 
+        className="fixed bottom-32 right-32 w-32 h-32 opacity-20 pointer-events-none"
+      />
     </div>;
 };
 export default Blog;
