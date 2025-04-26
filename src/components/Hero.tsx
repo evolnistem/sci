@@ -1,9 +1,17 @@
+
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
 import BookingDialog from './BookingDialog';
+
 const Hero = () => {
   const [bookingDialogOpen, setBookingDialogOpen] = useState(false);
+
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('services');
+    servicesSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return <section className="pt-20 pb-16 md:pt-28 md:pb-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       <div className="container-custom px-6 md:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-justify">
@@ -13,7 +21,10 @@ const Hero = () => {
             </h1>
             <p className="text-lg text-gray-600 mb-8 md:pr-12">Assistência especializada para estudantes de pós-graduação em nível experimental como Física, Química e engenharias. Eleve sua pesquisa com orientação especializada,, recursos personalizados e suporte abrangente.</p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-science-blue hover:bg-science-blue/90 text-white px-8 py-6 text-lg rounded-md">
+              <Button 
+                onClick={scrollToServices} 
+                className="bg-science-blue hover:bg-science-blue/90 text-white px-8 py-6 text-lg rounded-md"
+              >
                 Explorar Serviços
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
