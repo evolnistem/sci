@@ -1,7 +1,7 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { FlaskConical, Microscope, BookOpen, FileText, Lightbulb, LineChart, FilePen, Book, Search } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
+import ServiceRequestDialog from './ServiceRequestDialog';
 
 const services = [{
   icon: <FlaskConical className="h-10 w-10 text-science-blue" />,
@@ -42,6 +42,8 @@ const services = [{
 }];
 
 const Services = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+
   return <section id="services" className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-16">
@@ -68,10 +70,18 @@ const Services = () => {
           <p className="mb-6 font-medium text-lg">
             Precisa de uma solução personalizada para seu desafio específico de pesquisa?
           </p>
-          <a href="#contact" className="inline-flex items-center bg-white text-science-blue border-2 border-science-blue hover:bg-science-blue hover:text-white transition-colors duration-300 px-6 py-3 rounded-md font-medium">
+          <button
+            onClick={() => setDialogOpen(true)}
+            className="inline-flex items-center bg-white text-science-blue border-2 border-science-blue hover:bg-science-blue hover:text-white transition-colors duration-300 px-6 py-3 rounded-md font-medium"
+          >
             Solicitar Serviço Personalizado
-          </a>
+          </button>
         </div>
+
+        <ServiceRequestDialog 
+          open={dialogOpen}
+          onOpenChange={setDialogOpen}
+        />
       </div>
     </section>;
 };
