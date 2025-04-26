@@ -1,7 +1,7 @@
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
 const About = () => {
-  return <section id="about" className="section-padding bg-white">
+  return <section id="about" className="section-padding bg-white my-[6px] mx-0 px-0 py-0">
       <div className="container-custom">
         <div className="bg-gradient-to-r from-science-blue/10 to-science-purple/10 p-6 md:p-8 rounded-xl mb-12">
           <h3 className="text-2xl font-bold mb-4">🎓 Está enfrentando dificuldades na sua pós-graduação?</h3>
@@ -44,7 +44,7 @@ const About = () => {
           
           
           <div className="order-1 lg:order-2 relative">
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-science-purple/10 rounded-full filter blur-3xl"></div>
+            <div className="absolute -top-10 -right-10 w-64 h-64 bg-science-purple/10 filter blur-3xl my-0 rounded-xl py-0 px-0"></div>
             
             
           </div>

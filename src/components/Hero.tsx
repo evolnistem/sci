@@ -11,9 +11,7 @@ const Hero = () => {
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 lg:text-4xl">
               Suporte Academico Avançado para <span className="text-gradient">mestrandos e doutorandos em ciências experimentais</span>
             </h1>
-            <p className="text-lg text-gray-600 mb-8 md:pr-12">
-              Assistência especializada para estudantes de pós-graduação em física e química experimental. Eleve sua pesquisa com orientação especializada, recursos personalizados e suporte abrangente.
-            </p>
+            <p className="text-lg text-gray-600 mb-8 md:pr-12">Assistência especializada para estudantes de pós-graduação em nível experimental como Física, Química e engenharias. Eleve sua pesquisa com orientação especializada,, recursos personalizados e suporte abrangente.</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="bg-science-blue hover:bg-science-blue/90 text-white px-8 py-6 text-lg rounded-md">
                 Explorar Serviços

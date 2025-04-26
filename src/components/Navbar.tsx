@@ -1,26 +1,18 @@
-
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
-
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  
   return <nav className="py-4 border-b border-gray-100 bg-white sticky top-0 z-50">
       <div className="container-custom">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Link to="/" className="flex items-center text-xl md:text-2xl font-serif font-semibold text-science-dark">
-              <img 
-                src="/lovable-uploads/2d90386a-f3dc-41e7-8f0c-3de6e31813df.png" 
-                alt="SimpleScience Logo" 
-                className="h-10 mr-2"
-              />
+              <img src="/lovable-uploads/2d90386a-f3dc-41e7-8f0c-3de6e31813df.png" alt="SimpleScience Logo" className="h-10 mr-2" />
               Simple<span className="text-science-blue">Science</span>
             </Link>
           </div>
@@ -45,9 +37,7 @@ const Navbar = () => {
             <a href="/#contact" className="text-gray-600 hover:text-science-blue transition-colors duration-300">
               Contato
             </a>
-            <Button className="bg-science-blue text-white hover:bg-science-blue/90">
-              Comece Agora
-            </Button>
+            
           </div>
 
           {/* Mobile Menu Button */}
@@ -87,5 +77,4 @@ const Navbar = () => {
       </div>
     </nav>;
 };
-
 export default Navbar;
