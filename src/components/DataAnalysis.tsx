@@ -84,17 +84,7 @@ const DataAnalysis = () => {
                     {technique.name}
                   </span>
                 </div>
-                <div className="w-full h-64 overflow-hidden rounded-lg shadow-lg transition-transform group-hover:scale-105">
-                  <img 
-                    src={technique.image} 
-                    alt={technique.name} 
-                    className="w-full h-full object-contain bg-white p-4"
-                    onError={(e) => {
-                      console.error(`Error loading image for ${technique.name}:`, e);
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600";
-                    }}
-                  />
-                </div>
+
                 <div className="w-full p-4 bg-white rounded-lg shadow">
                   {editingIndex === index ? (
                     <div className="space-y-4">
@@ -123,6 +113,18 @@ const DataAnalysis = () => {
                       </Button>
                     </div>
                   )}
+                </div>
+
+                <div className="w-full h-64 overflow-hidden rounded-lg shadow-lg transition-transform group-hover:scale-105">
+                  <img 
+                    src={technique.image} 
+                    alt={technique.name} 
+                    className="w-full h-full object-contain bg-white p-4"
+                    onError={(e) => {
+                      console.error(`Error loading image for ${technique.name}:`, e);
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600";
+                    }}
+                  />
                 </div>
               </div>
             ))}
