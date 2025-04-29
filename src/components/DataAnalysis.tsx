@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Microscope, Atom, Edit } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
@@ -17,7 +18,7 @@ const initialTechniques = [{
   description: "Técnica espectroscópica que fornece informações sobre modos vibracionais moleculares."
 }, {
   name: "FT-IR",
-  image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=600",
+  image: "/lovable-uploads/b8c0ed36-2367-4842-b289-73f9d13ee922.png",
   description: "Espectroscopia no infravermelho por transformada de Fourier para análise de grupos funcionais."
 }, {
   name: "ATR",
