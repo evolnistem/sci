@@ -70,7 +70,7 @@
   }
   
   .gradient-bg {
-    @apply bg-gradient-to-r from-science-blue to-science-teal;
+    @apply bg-gradient-to-r from-science-blue to-science-dark;
   }
   
   .text-gradient {

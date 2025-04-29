@@ -1,30 +1,44 @@
+
 import React from 'react';
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, BookOpen, FileText, Microscope } from 'lucide-react';
-const serviceExamples = [{
-  title: "Análise de Dados Espectroscópicos",
-  category: "Análise e Interpretação de Dados",
-  icon: <Microscope className="h-8 w-8 text-science-blue" />,
-  description: "Apoio na análise e interpretação de dados de espectroscopia Raman, FTIR e UV-Vis para identificação de compostos em pesquisas de química orgânica.",
-  imageUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
-  result: "A análise resultou em identificação precisa de marcadores químicos relevantes para a pesquisa do aluno."
-}, {
-  title: "Revisão de Tese em Física Quântica",
-  category: "Suporte para Teses e Dissertações",
-  icon: <FileText className="h-8 w-8 text-science-blue" />,
-  description: "Revisão detalhada e edição de tese de doutorado sobre computação quântica, incluindo verificação de cálculos, formatação e clareza conceitual.",
-  imageUrl: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=800",
-  result: "Tese aprovada com distinção pela banca examinadora."
-}, {
-  title: "Pesquisa Bibliográfica em Catálise",
-  category: "Revisão de Literatura e Pesquisa",
-  icon: <BookOpen className="h-8 w-8 text-science-blue" />,
-  description: "Levantamento bibliográfico abrangente sobre avanços recentes em catalisadores heterogêneos para reações de hidrogenação.",
-  imageUrl: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800",
-  result: "Fornecimento de 45 referências relevantes e um resumo analítico de 25 páginas que auxiliou o direcionamento da pesquisa."
-}];
+
 const ServiceExamples = () => {
-  return;
+  return (
+    <section id="service-examples" className="section-padding bg-white">
+      <div className="container-custom">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4 text-science-dark">Our Work Examples</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Explore some of our recent projects that showcase our expertise and commitment to excellence.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[1, 2, 3].map((item) => (
+            <div key={item} className="bg-gray-50 rounded-lg overflow-hidden shadow-md transition-all hover:shadow-xl">
+              <div className="h-48 bg-gray-200"></div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2 text-science-dark">Project Example {item}</h3>
+                <p className="text-gray-600 mb-4">
+                  A brief description of this project and the solutions we provided to meet our client's needs.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Technology</span>
+                  <span className="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">Innovation</span>
+                  <span className="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Design</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div className="text-center mt-10">
+          <button className="px-6 py-3 bg-science-blue text-white rounded-md hover:bg-blue-700 transition-colors">
+            View All Projects
+          </button>
+        </div>
+      </div>
+    </section>
+  );
 };
+
 export default ServiceExamples;

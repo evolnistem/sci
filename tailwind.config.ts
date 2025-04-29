@@ -52,6 +52,7 @@ const config = {
         science: {
           blue: "#0D74F5",
           dark: "#223A5E",
+          purple: "#8B5CF6",  // Added this color definition
         },
       },
       borderRadius: {
