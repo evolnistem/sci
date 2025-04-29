@@ -101,7 +101,7 @@ const Blog = () => {
                 <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                   <div className="relative">
                     <img 
-                      src={post.coverImage || "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"} 
+                      src={post.imageUrl || "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"} 
                       alt={post.title} 
                       className="w-full h-48 object-cover"
                     />
@@ -148,7 +148,7 @@ const Blog = () => {
                     
                     <div className="flex justify-between items-center mt-4">
                       <div className="flex flex-wrap gap-2">
-                        {post.tags && post.tags.slice(0, 2).map((tag, idx) => (
+                        {post.keywords && post.keywords.slice(0, 2).map((tag, idx) => (
                           <Badge key={idx} variant="outline" className="bg-gray-100 text-gray-600">
                             {tag}
                           </Badge>
