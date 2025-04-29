@@ -1,21 +1,16 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AboutContent from '@/components/About';
 import { CheckCircle2 } from 'lucide-react';
-
 const About = () => {
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       <main>
         <section className="py-16 md:py-24 bg-gradient-to-r from-science-blue/5 to-science-teal/5">
           <div className="container-custom">
             <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-center">Sobre Nós</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto text-center">
-              Conheça a equipe por trás da SimpleScience e nossa missão de apoiar pesquisadores em física e química experimental.
-            </p>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto text-center">Conheça a equipe por trás da SimpleScience e nossa missão de apoiar pesquisadores em ciências experimentais como Física, Química e Engenharias.</p>
           </div>
         </section>
         
@@ -81,8 +76,6 @@ const About = () => {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default About;
