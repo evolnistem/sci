@@ -1,15 +1,18 @@
 
 import React from 'react';
 import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
-import AboutContent from '@/components/About';
+import About from '@/components/About';
 import Services from '@/components/Services';
-import ServiceExamplesContent from '@/components/ServiceExamples';
+import DataAnalysis from '@/components/DataAnalysis';
+import ServiceExamples from '@/components/ServiceExamples';
+import VideoTestimonials from '@/components/VideoTestimonials';
+import Founders from '@/components/Founders';
+import BlogSection from '@/components/BlogSection';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import FAQ from '@/components/FAQ';
 import ContactForm from '@/components/ContactForm';
-import BlogSection from '@/components/BlogSection';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
@@ -17,11 +20,14 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
-        <AboutContent />
+        <About />
+        <Founders />
         <Services />
-        <ServiceExamplesContent />
-        <WhyChooseUs />
+        <DataAnalysis />
+        <ServiceExamples />
+        <VideoTestimonials />
         <BlogSection />
+        <WhyChooseUs />
         <FAQ />
         <ContactForm />
       </main>

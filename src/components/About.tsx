@@ -1,62 +1,55 @@
-
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
-
 const About = () => {
-  return (
-    <section id="about" className="section-padding bg-gray-50">
+  return <section id="about" className="section-padding bg-white my-[6px] mx-0 px-0 py-0">
       <div className="container-custom">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold mb-4 text-science-dark">About Our Company</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            We are dedicated to providing innovative solutions for businesses looking to thrive in the digital landscape.
+        <div className="bg-gradient-to-r from-science-blue/10 to-science-purple/10 p-6 md:p-8 rounded-xl mb-12">
+          <h3 className="text-2xl font-bold mb-4">🎓 Está enfrentando dificuldades na sua pós-graduação?</h3>
+          <p className="text-gray-700 mb-4">
+            Você não está sozinho. Muitos estudantes de mestrado e doutorado sentem-se sobrecarregados diante dos desafios acadêmicos — especialmente nas etapas experimentais, onde os resultados nem sempre saem como o esperado.
+          </p>
+          
+          <p className="text-gray-700 mb-4">
+            🔬 Se você atua nas áreas de Física, Química ou Engenharias, sabe que lidar com equipamentos, metodologias complexas e a pressão por produtividade pode ser desgastante.
+          </p>
+          
+          <p className="text-gray-700 mb-4">
+            💡 É exatamente aí que entra a minha assessoria acadêmica:
+          </p>
+          
+          <ul className="list-disc pl-6 mb-4 space-y-2 text-gray-700">
+            <li>Acompanhamento individualizado dos seus experimentos;</li>
+            <li>Apoio na organização e estruturação da sua pesquisa;</li>
+            <li>Leitura crítica e sugestões para sua escrita científica (artigos, dissertação, tese);</li>
+            <li>Orientações para análise e interpretação de dados experimentais.</li>
+          </ul>
+          
+          <p className="text-gray-700 mb-4">
+            📈 Meu objetivo é te ajudar a avançar com mais segurança e eficiência, reduzindo a ansiedade e otimizando seu tempo.
+          </p>
+          
+          <p className="text-gray-700 font-medium">
+            Entre em contato e descubra como a assessoria certa pode transformar sua trajetória acadêmica.
           </p>
         </div>
-
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div className="space-y-4">
-            <h3 className="text-2xl font-semibold text-science-dark">Our Mission</h3>
-            <p className="text-gray-600">
-              To empower businesses with cutting-edge technology solutions that drive growth, efficiency, and success in an ever-evolving digital world.
-            </p>
-            
-            <div className="space-y-2 mt-6">
-              <div className="flex items-start gap-2">
-                <CheckCircle2 className="h-5 w-5 text-science-blue mt-1" />
-                <p className="text-gray-700">Industry-leading expertise and innovation</p>
-              </div>
-              <div className="flex items-start gap-2">
-                <CheckCircle2 className="h-5 w-5 text-science-blue mt-1" />
-                <p className="text-gray-700">Customer-focused approach with personalized solutions</p>
-              </div>
-              <div className="flex items-start gap-2">
-                <CheckCircle2 className="h-5 w-5 text-science-blue mt-1" />
-                <p className="text-gray-700">Commitment to sustainable and ethical business practices</p>
-              </div>
-            </div>
-          </div>
+        
+        
+        
+        <div className="mb-16 text-center">
           
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-4 text-science-dark">Company Timeline</h3>
-            <div className="space-y-4">
-              <div className="border-l-2 border-science-blue pl-4 pb-4">
-                <p className="text-sm text-science-blue font-medium">2018</p>
-                <p className="text-gray-700">Founded with a vision to transform digital experiences</p>
-              </div>
-              <div className="border-l-2 border-science-blue pl-4 pb-4">
-                <p className="text-sm text-science-blue font-medium">2020</p>
-                <p className="text-gray-700">Expanded services to include data analytics and AI solutions</p>
-              </div>
-              <div className="border-l-2 border-science-blue pl-4">
-                <p className="text-sm text-science-blue font-medium">2023</p>
-                <p className="text-gray-700">Achieved industry recognition for innovative approaches</p>
-              </div>
-            </div>
+          
+        </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          
+          <div className="order-1 lg:order-2 relative">
+            <div className="absolute -top-10 -right-10 w-64 h-64 bg-science-purple/10 filter blur-3xl my-0 rounded-xl py-0 px-0"></div>
+            
+            
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
