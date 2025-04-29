@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
@@ -26,6 +27,10 @@ const BlogSection = () => {
             Ver todos os artigos
           </Link>
           
+          <Link to="/blog" className="inline-flex items-center justify-center bg-white border border-science-blue text-science-blue hover:bg-gray-50 transition-colors duration-300 px-6 py-3 rounded-md font-medium">
+            <FilePlus className="mr-2 h-5 w-5" />
+            Criar novo artigo
+          </Link>
         </div>
       </div>
     </section>;
