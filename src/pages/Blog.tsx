@@ -3,13 +3,25 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Calendar, Clock, Filter, Search, PlusCircle, X } from 'lucide-react';
+import { ArrowRight, Calendar, Clock, Filter, Search, PlusCircle, X, Trash2 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Pagination, PaginationContent, PaginationItem, PaginationLink } from '@/components/ui/pagination';
 import { blogPosts as initialBlogPosts } from '@/data/blogPosts';
 import { Button } from '@/components/ui/button';
 import BlogPostForm from '@/components/BlogPostForm';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { toast } from "@/hooks/use-toast";
 
 // Categories for filter
 const categories = Array.from(new Set(initialBlogPosts.map(post => post.category)));
@@ -19,6 +31,7 @@ const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [showNewPostForm, setShowNewPostForm] = useState(false);
+  const [postToDelete, setPostToDelete] = useState<string | null>(null);
 
   // Filter blog posts based on search term and category
   const filteredPosts = blogPosts.filter(post => {
@@ -33,6 +46,15 @@ const Blog = () => {
     setShowNewPostForm(false);
   };
 
+  const handleDeletePost = (slug: string) => {
+    setBlogPosts(prevPosts => prevPosts.filter(post => post.slug !== slug));
+    toast({
+      title: "Post excluído",
+      description: "O post foi excluído com sucesso.",
+    });
+    setPostToDelete(null);
+  };
+
   return <div className="min-h-screen flex flex-col relative">
       <Navbar />
       <main>
@@ -40,8 +62,7 @@ const Blog = () => {
           <div className="container-custom">
             <div className="text-center mb-16">
               <h1 className="text-5xl md:text-6xl font-serif font-bold text-science-dark mb-6 animate-slide-up">
-                Blog <span className="text-gradient">
-              </span>
+                Blog <span className="text-gradient"></span>
               </h1>
               
               <p className="text-gray-600 max-w-2xl mx-auto">
@@ -109,7 +130,42 @@ const Blog = () => {
                       />
                     </div>
                     <CardContent className="pt-6">
-                      <Badge className="mb-2 bg-science-blue text-white hover:bg-science-blue/90">{post.category}</Badge>
+                      <div className="flex justify-between items-start mb-2">
+                        <Badge className="bg-science-blue text-white hover:bg-science-blue/90">{post.category}</Badge>
+                        
+                        <AlertDialog>
+                          <AlertDialogTrigger asChild>
+                            <Button 
+                              variant="ghost" 
+                              className="p-1 h-auto hover:bg-red-50 hover:text-red-500"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setPostToDelete(post.slug);
+                              }}
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </Button>
+                          </AlertDialogTrigger>
+                          <AlertDialogContent>
+                            <AlertDialogHeader>
+                              <AlertDialogTitle>Excluir post</AlertDialogTitle>
+                              <AlertDialogDescription>
+                                Tem certeza que deseja excluir este post? Esta ação não pode ser desfeita.
+                              </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                              <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                              <AlertDialogAction 
+                                onClick={() => handleDeletePost(post.slug)}
+                                className="bg-red-500 hover:bg-red-600"
+                              >
+                                Excluir
+                              </AlertDialogAction>
+                            </AlertDialogFooter>
+                          </AlertDialogContent>
+                        </AlertDialog>
+                      </div>
+                      
                       <Link to={`/blog/${post.slug}`}>
                         <h3 className="text-xl font-bold mb-2 hover:text-science-blue transition-colors">{post.title}</h3>
                       </Link>
