@@ -10,7 +10,7 @@ const initialTechniques = [{
   description: "Técnica de caracterização que permite identificar estruturas cristalinas através da difração de raios X."
 }, {
   name: "Microscopia Eletrônica de Varredura e Transmissão",
-  image: "https://images.unsplash.com/photo-1516972810927-80185027ca84?auto=format&fit=crop&q=80&w=600",
+  image: "/lovable-uploads/d2b65613-42ff-4eb9-affc-000df3d6845b.png",
   description: "Análise morfológica e estrutural de materiais em escala nanométrica."
 }, {
   name: "Espectroscopia Raman",
