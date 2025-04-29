@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,6 +15,7 @@ import { toast } from "@/hooks/use-toast";
 
 // Categories for filter
 const categories = Array.from(new Set(initialBlogPosts.map(post => post.category)));
+
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState(initialBlogPosts);
   const [searchTerm, setSearchTerm] = useState('');
@@ -27,10 +29,12 @@ const Blog = () => {
     const matchesCategory = selectedCategory === '' || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+
   const handleNewPost = (postData: any) => {
     setBlogPosts(prevPosts => [postData, ...prevPosts]);
     setShowNewPostForm(false);
   };
+
   const handleDeletePost = (slug: string) => {
     setBlogPosts(prevPosts => prevPosts.filter(post => post.slug !== slug));
     toast({
@@ -39,6 +43,7 @@ const Blog = () => {
     });
     setPostToDelete(null);
   };
+
   return <div className="min-h-screen flex flex-col relative">
       <Navbar />
       <main>
@@ -92,10 +97,70 @@ const Blog = () => {
             
             {/* Blog Posts Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.length > 0 ? filteredPosts.map((post, index) => <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+              {filteredPosts.length > 0 ? filteredPosts.map((post, index) => (
+                <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                  <div className="relative">
+                    <img 
+                      src={post.coverImage || "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"} 
+                      alt={post.title} 
+                      className="w-full h-48 object-cover"
+                    />
+                    <Badge className="absolute top-3 right-3 bg-science-blue/90">{post.category}</Badge>
                     
+                    {/* Delete Button */}
+                    <AlertDialog>
+                      <AlertDialogTrigger asChild>
+                        <Button 
+                          variant="destructive" 
+                          size="icon" 
+                          className="absolute top-3 left-3 h-8 w-8 rounded-full"
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </AlertDialogTrigger>
+                      <AlertDialogContent>
+                        <AlertDialogHeader>
+                          <AlertDialogTitle>Tem certeza?</AlertDialogTitle>
+                          <AlertDialogDescription>
+                            Esta ação não pode ser desfeita. Isso excluirá permanentemente o artigo "{post.title}".
+                          </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                          <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                          <AlertDialogAction onClick={() => handleDeletePost(post.slug)} className="bg-red-500 hover:bg-red-600">
+                            Excluir
+                          </AlertDialogAction>
+                        </AlertDialogFooter>
+                      </AlertDialogContent>
+                    </AlertDialog>
+                  </div>
+                  
+                  <CardContent className="p-5">
+                    <div className="flex items-center text-gray-500 text-sm mb-2">
+                      <Calendar className="h-4 w-4 mr-1" />
+                      <span>{post.date}</span>
+                      <Clock className="h-4 w-4 ml-4 mr-1" />
+                      <span>{post.readTime} min de leitura</span>
+                    </div>
                     
-                  </Card>) : <div className="col-span-full text-center py-12">
+                    <h3 className="font-bold text-xl mb-2">{post.title}</h3>
+                    <p className="text-gray-600 mb-4 line-clamp-2">{post.description}</p>
+                    
+                    <div className="flex justify-between items-center mt-4">
+                      <div className="flex flex-wrap gap-2">
+                        {post.tags && post.tags.slice(0, 2).map((tag, idx) => (
+                          <Badge key={idx} variant="outline" className="bg-gray-100 text-gray-600">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                      <Link to={`/blog/${post.slug}`} className="text-science-blue hover:underline inline-flex items-center">
+                        Ler mais <ArrowRight className="ml-1 h-4 w-4" />
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+              )) : <div className="col-span-full text-center py-12">
                   <p className="text-gray-600">Nenhum artigo encontrado para os filtros selecionados.</p>
                 </div>}
             </div>
@@ -133,4 +198,5 @@ const Blog = () => {
       <img src="/lovable-uploads/ef4383e1-a7b3-4b9b-a6c6-efcc680f41b6.png" alt="Chemistry Icon" className="fixed bottom-32 right-32 w-32 h-32 opacity-20 pointer-events-none" />
     </div>;
 };
+
 export default Blog;

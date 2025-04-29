@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, BookOpen, FileText, Microscope } from 'lucide-react';
+
 const serviceExamples = [{
   title: "Análise de Dados Espectroscópicos",
   category: "Análise e Interpretação de Dados",
@@ -24,7 +26,40 @@ const serviceExamples = [{
   imageUrl: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800",
   result: "Fornecimento de 45 referências relevantes e um resumo analítico de 25 páginas que auxiliou o direcionamento da pesquisa."
 }];
+
 const ServiceExamples = () => {
-  return;
+  return (
+    <section className="section-padding">
+      <div className="container-custom">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Exemplos de <span className="text-gradient">Serviços</span></h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Conheça alguns exemplos de como nossos serviços ajudaram estudantes reais a superarem obstáculos em suas pesquisas.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {serviceExamples.map((example, index) => (
+            <Card key={index} className="border border-gray-200 hover:shadow-lg transition-all duration-300">
+              <div className="relative h-48 overflow-hidden">
+                <img src={example.imageUrl} alt={example.title} className="w-full h-full object-cover" />
+                <Badge className="absolute top-3 right-3 bg-science-blue/90">{example.category}</Badge>
+              </div>
+              <CardContent className="p-6">
+                <div className="mb-4">{example.icon}</div>
+                <h3 className="text-xl font-bold mb-3">{example.title}</h3>
+                <p className="text-gray-600 mb-4">{example.description}</p>
+                <div className="bg-gray-50 p-4 rounded-md">
+                  <p className="text-sm font-medium">Resultado:</p>
+                  <p className="text-gray-600">{example.result}</p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
+
 export default ServiceExamples;
