@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,22 +9,11 @@ import { Pagination, PaginationContent, PaginationItem, PaginationLink } from '@
 import { blogPosts as initialBlogPosts } from '@/data/blogPosts';
 import { Button } from '@/components/ui/button';
 import BlogPostForm from '@/components/BlogPostForm';
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import { toast } from "@/hooks/use-toast";
 
 // Categories for filter
 const categories = Array.from(new Set(initialBlogPosts.map(post => post.category)));
-
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState(initialBlogPosts);
   const [searchTerm, setSearchTerm] = useState('');
@@ -35,26 +23,22 @@ const Blog = () => {
 
   // Filter blog posts based on search term and category
   const filteredPosts = blogPosts.filter(post => {
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                         post.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || post.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === '' || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
-
   const handleNewPost = (postData: any) => {
     setBlogPosts(prevPosts => [postData, ...prevPosts]);
     setShowNewPostForm(false);
   };
-
   const handleDeletePost = (slug: string) => {
     setBlogPosts(prevPosts => prevPosts.filter(post => post.slug !== slug));
     toast({
       title: "Post excluído",
-      description: "O post foi excluído com sucesso.",
+      description: "O post foi excluído com sucesso."
     });
     setPostToDelete(null);
   };
-
   return <div className="min-h-screen flex flex-col relative">
       <Navbar />
       <main>
@@ -72,30 +56,21 @@ const Blog = () => {
             
             {/* Create New Post Button */}
             <div className="mb-8 flex justify-center">
-              <Button 
-                onClick={() => setShowNewPostForm(!showNewPostForm)} 
-                className="bg-science-blue hover:bg-science-blue/90 flex items-center gap-2"
-              >
-                {showNewPostForm ? (
-                  <>
+              <Button onClick={() => setShowNewPostForm(!showNewPostForm)} className="bg-science-blue hover:bg-science-blue/90 flex items-center gap-2">
+                {showNewPostForm ? <>
                     <X className="h-5 w-5" />
                     Cancelar
-                  </>
-                ) : (
-                  <>
+                  </> : <>
                     <PlusCircle className="h-5 w-5" />
                     Novo Post
-                  </>
-                )}
+                  </>}
               </Button>
             </div>
 
             {/* New Post Form */}
-            {showNewPostForm && (
-              <div className="mb-12">
+            {showNewPostForm && <div className="mb-12">
                 <BlogPostForm onSubmit={handleNewPost} />
-              </div>
-            )}
+              </div>}
             
             {/* Search and Filter */}
             <div className="mb-12 flex flex-col md:flex-row gap-4 justify-between items-center">
@@ -110,89 +85,19 @@ const Blog = () => {
                 <Filter className="h-5 w-5 text-gray-500" />
                 <select className="border border-gray-300 rounded-md py-2 px-4 focus:ring-2 focus:ring-science-blue focus:border-transparent" value={selectedCategory} onChange={e => setSelectedCategory(e.target.value)}>
                   <option value="">Todas as categorias</option>
-                  {Array.from(new Set(blogPosts.map(post => post.category))).map(category => (
-                    <option key={category} value={category}>{category}</option>
-                  ))}
+                  {Array.from(new Set(blogPosts.map(post => post.category))).map(category => <option key={category} value={category}>{category}</option>)}
                 </select>
               </div>
             </div>
             
             {/* Blog Posts Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.length > 0 ? (
-                filteredPosts.map((post, index) => (
-                  <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <div className="aspect-video w-full overflow-hidden">
-                      <img 
-                        src={post.imageUrl} 
-                        alt={post.title} 
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                      />
-                    </div>
-                    <CardContent className="pt-6">
-                      <div className="flex justify-between items-start mb-2">
-                        <Badge className="bg-science-blue text-white hover:bg-science-blue/90">{post.category}</Badge>
-                        
-                        <AlertDialog>
-                          <AlertDialogTrigger asChild>
-                            <Button 
-                              variant="ghost" 
-                              className="p-1 h-auto hover:bg-red-50 hover:text-red-500"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                setPostToDelete(post.slug);
-                              }}
-                            >
-                              <Trash2 className="h-4 w-4" />
-                            </Button>
-                          </AlertDialogTrigger>
-                          <AlertDialogContent>
-                            <AlertDialogHeader>
-                              <AlertDialogTitle>Excluir post</AlertDialogTitle>
-                              <AlertDialogDescription>
-                                Tem certeza que deseja excluir este post? Esta ação não pode ser desfeita.
-                              </AlertDialogDescription>
-                            </AlertDialogHeader>
-                            <AlertDialogFooter>
-                              <AlertDialogCancel>Cancelar</AlertDialogCancel>
-                              <AlertDialogAction 
-                                onClick={() => handleDeletePost(post.slug)}
-                                className="bg-red-500 hover:bg-red-600"
-                              >
-                                Excluir
-                              </AlertDialogAction>
-                            </AlertDialogFooter>
-                          </AlertDialogContent>
-                        </AlertDialog>
-                      </div>
-                      
-                      <Link to={`/blog/${post.slug}`}>
-                        <h3 className="text-xl font-bold mb-2 hover:text-science-blue transition-colors">{post.title}</h3>
-                      </Link>
-                      <p className="text-gray-600 mb-4 line-clamp-2">{post.description}</p>
-                      <div className="flex justify-between items-center text-sm text-gray-500">
-                        <div className="flex items-center">
-                          <Calendar className="h-4 w-4 mr-1" />
-                          <span>{post.date}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Clock className="h-4 w-4 mr-1" />
-                          <span>{post.readTime}</span>
-                        </div>
-                      </div>
-                      <div className="mt-4">
-                        <Link to={`/blog/${post.slug}`} className="inline-flex items-center text-science-blue hover:underline font-medium">
-                          Ler mais <ArrowRight className="ml-1 h-4 w-4" />
-                        </Link>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))
-              ) : (
-                <div className="col-span-full text-center py-12">
+              {filteredPosts.length > 0 ? filteredPosts.map((post, index) => <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    
+                    
+                  </Card>) : <div className="col-span-full text-center py-12">
                   <p className="text-gray-600">Nenhum artigo encontrado para os filtros selecionados.</p>
-                </div>
-              )}
+                </div>}
             </div>
             
             {/* Pagination */}
@@ -228,5 +133,4 @@ const Blog = () => {
       <img src="/lovable-uploads/ef4383e1-a7b3-4b9b-a6c6-efcc680f41b6.png" alt="Chemistry Icon" className="fixed bottom-32 right-32 w-32 h-32 opacity-20 pointer-events-none" />
     </div>;
 };
-
 export default Blog;
