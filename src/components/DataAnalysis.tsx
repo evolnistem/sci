@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Microscope, Atom, Edit } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
+
 const initialTechniques = [{
   name: "Difratometria de Raios X",
   image: "/lovable-uploads/b7184288-60e5-40c9-b146-61b253ecd6d3.png",
@@ -12,7 +13,7 @@ const initialTechniques = [{
   description: "Análise morfológica e estrutural de materiais em escala nanométrica."
 }, {
   name: "Espectroscopia Raman",
-  image: "/lovable-uploads/45873094-0c61-4d3d-955b-a1de5ca219fa.png",
+  image: "/lovable-uploads/b980fa39-cb49-4448-8e12-9c719422a111.png",
   description: "Técnica espectroscópica que fornece informações sobre modos vibracionais moleculares."
 }, {
   name: "FT-IR",
@@ -35,14 +36,17 @@ const initialTechniques = [{
   image: "/lovable-uploads/ac0c01fc-6250-428d-ad68-eda90cb74c33.png",
   description: "Análise topográfica de superfícies com resolução atômica."
 }];
+
 const DataAnalysis = () => {
   const [techniques, setTechniques] = useState(initialTechniques);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [tempDescription, setTempDescription] = useState("");
+
   const handleEdit = (index: number) => {
     setEditingIndex(index);
     setTempDescription(techniques[index].description);
   };
+
   const handleSave = (index: number) => {
     const updatedTechniques = [...techniques];
     updatedTechniques[index] = {
@@ -52,6 +56,7 @@ const DataAnalysis = () => {
     setTechniques(updatedTechniques);
     setEditingIndex(null);
   };
+
   return <section id="data-analysis" className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-16">
@@ -103,4 +108,5 @@ const DataAnalysis = () => {
       </div>
     </section>;
 };
+
 export default DataAnalysis;
