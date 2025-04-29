@@ -7,21 +7,16 @@ import { ArrowRight, Calendar, Clock, Filter, Search, PlusCircle, X, Trash2 } fr
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Pagination, PaginationContent, PaginationItem, PaginationLink } from '@/components/ui/pagination';
-import { blogPosts as initialBlogPosts } from '@/data/blogPosts';
 import { Button } from '@/components/ui/button';
 import BlogPostForm from '@/components/BlogPostForm';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import { toast } from "@/hooks/use-toast";
-
-// Categories for filter
-const categories = Array.from(new Set(initialBlogPosts.map(post => post.category)));
 
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [showNewPostForm, setShowNewPostForm] = useState(false);
-  const [showOnlyUserPosts, setShowOnlyUserPosts] = useState(true);
 
   // Load posts from localStorage on component mount
   useEffect(() => {

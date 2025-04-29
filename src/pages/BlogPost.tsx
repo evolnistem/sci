@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, Share2, Bookmark, ThumbsUp } from 'lucide-react';
@@ -9,16 +8,24 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { blogPosts } from '@/data/blogPosts';
 import { Separator } from "@/components/ui/separator";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 
 const BlogPost = () => {
   const { slug } = useParams();
-  const [post, setPost] = useState<typeof blogPosts[0] | undefined>(undefined);
+  const [post, setPost] = useState<any | undefined>(undefined);
   
   useEffect(() => {
-    // Find the post with the matching slug
-    const foundPost = blogPosts.find(p => p.slug === slug);
-    setPost(foundPost);
+    // First, check user posts from localStorage
+    const userPosts = JSON.parse(localStorage.getItem('userBlogPosts') || '[]');
+    const foundUserPost = userPosts.find((p: any) => p.slug === slug);
+    
+    if (foundUserPost) {
+      setPost(foundUserPost);
+    } else {
+      // If not found in user posts, look in fixed blog posts
+      const foundFixedPost = blogPosts.find(p => p.slug === slug);
+      setPost(foundFixedPost);
+    }
     
     // Scroll to top when post changes
     window.scrollTo(0, 0);
@@ -169,53 +176,43 @@ const BlogPost = () => {
                     {post.description}
                   </p>
                   
-                  <h2>Introdução</h2>
-                  <p>
-                    Na comunidade acadêmica atual, especialmente nas áreas de ciências exatas e experimentais, 
-                    a publicação de artigos em periódicos renomados é um marco essencial na carreira de qualquer pesquisador. 
-                    No entanto, o caminho para uma publicação bem-sucedida é frequentemente repleto de desafios e incertezas.
-                  </p>
-                  
-                  <p>
-                    Este artigo explora os principais aspectos relacionados a {post.title.toLowerCase()}, 
-                    fornecendo insights valiosos baseados em nossa experiência de mais de uma década na área acadêmica 
-                    e na orientação de estudantes de pós-graduação.
-                  </p>
-                  
-                  <h2>Desenvolvimento</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. 
-                    Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. 
-                    Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. 
-                    Suspendisse dictum feugiat nisl ut dapibus.
-                  </p>
-                  
-                  <h3>Pontos importantes a considerar</h3>
-                  <ul>
-                    <li>Escolha cuidadosa do periódico adequado ao escopo da pesquisa</li>
-                    <li>Estruturação clara e concisa do manuscrito</li>
-                    <li>Apresentação efetiva dos resultados experimentais</li>
-                    <li>Discussão fundamentada e contextualizada com a literatura</li>
-                    <li>Revisão criteriosa antes da submissão</li>
-                  </ul>
-                  
-                  <h2>Aplicações práticas</h2>
-                  <p>
-                    Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. 
-                    Proin quis tortor orci. Etiam at risus et justo dignissim congue. 
-                    Donec congue lacinia dui, a porttitor lectus condimentum laoreet. 
-                    Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. 
-                    In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.
-                  </p>
-                  
-                  <h2>Conclusão</h2>
-                  <p>
-                    Em resumo, o processo de {post.title.toLowerCase()} requer atenção a múltiplos fatores 
-                    que influenciam diretamente as chances de aceitação do manuscrito. 
-                    Através de uma abordagem metódica e estratégica, pesquisadores podem aumentar significativamente 
-                    a probabilidade de ter seus trabalhos aceitos em periódicos de alto impacto, 
-                    contribuindo assim para o avanço do conhecimento científico em suas respectivas áreas.
-                  </p>
+                  <div className="content">
+                    {post.content ? (
+                      <div dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br/>') }} />
+                    ) : (
+                      <>
+                        <h2>Introdução</h2>
+                        <p>
+                          Na comunidade acadêmica atual, especialmente nas áreas de ciências exatas e experimentais, 
+                          a publicação de artigos em periódicos renomados é um marco essencial na carreira de qualquer pesquisador. 
+                          No entanto, o caminho para uma publicação bem-sucedida é frequentemente repleto de desafios e incertezas.
+                        </p>
+                        
+                        <p>
+                          Este artigo explora os principais aspectos relacionados a {post.title.toLowerCase()}, 
+                          fornecendo insights valiosos baseados em nossa experiência de mais de uma década na área acadêmica 
+                          e na orientação de estudantes de pós-graduação.
+                        </p>
+                        
+                        <h2>Desenvolvimento</h2>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. 
+                          Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. 
+                          Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. 
+                          Suspendisse dictum feugiat nisl ut dapibus.
+                        </p>
+                        
+                        <h2>Conclusão</h2>
+                        <p>
+                          Em resumo, o processo de {post.title.toLowerCase()} requer atenção a múltiplos fatores 
+                          que influenciam diretamente as chances de aceitação do manuscrito. 
+                          Através de uma abordagem metódica e estratégica, pesquisadores podem aumentar significativamente 
+                          a probabilidade de ter seus trabalhos aceitos em periódicos de alto impacto, 
+                          contribuindo assim para o avanço do conhecimento científico em suas respectivas áreas.
+                        </p>
+                      </>
+                    )}
+                  </div>
                 </div>
                 
                 {/* Author bio */}
@@ -273,10 +270,11 @@ const BlogPost = () => {
                 <div className="sticky top-24">
                   <h3 className="text-lg font-bold mb-6">Artigos relacionados</h3>
                   <div className="space-y-6">
-                    {blogPosts
-                      .filter(p => p.slug !== slug && p.category === post.category)
+                    {/* Get user posts from localStorage */}
+                    {JSON.parse(localStorage.getItem('userBlogPosts') || '[]')
+                      .filter((p: any) => p.slug !== slug && p.category === post.category)
                       .slice(0, 3)
-                      .map((relatedPost, index) => (
+                      .map((relatedPost: any, index: number) => (
                         <div key={index} className="flex space-x-4">
                           <div className="flex-shrink-0 w-24 h-16 bg-gray-200 rounded overflow-hidden">
                             <img 
@@ -300,7 +298,9 @@ const BlogPost = () => {
                   <div className="mt-8 pt-8 border-t border-gray-200">
                     <h3 className="text-lg font-bold mb-6">Categorias</h3>
                     <div className="flex flex-wrap gap-2">
-                      {Array.from(new Set(blogPosts.map(p => p.category))).map((category, index) => (
+                      {Array.from(new Set(JSON.parse(localStorage.getItem('userBlogPosts') || '[]').map((p: any) => p.category)))
+                        .filter(Boolean)
+                        .map((category, index) => (
                         <Link key={index} to={`/blog?category=${category}`}>
                           <Badge variant="outline" className="bg-gray-50 hover:bg-gray-100">
                             {category}
