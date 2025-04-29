@@ -14,7 +14,7 @@ const initialTechniques = [{
   description: "Análise morfológica e estrutural de materiais em escala nanométrica."
 }, {
   name: "Espectroscopia Raman",
-  image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=600",
+  image: "/lovable-uploads/45873094-0c61-4d3d-955b-a1de5ca219fa.png",
   description: "Técnica espectroscópica que fornece informações sobre modos vibracionais moleculares."
 }, {
   name: "FT-IR",
