@@ -71,7 +71,7 @@ const Blog = () => {
           <div className="container-custom">
             <div className="text-center mb-16">
               <h1 className="text-5xl md:text-6xl font-serif font-bold text-science-dark mb-6 animate-slide-up">
-                Meu Blog <span className="text-gradient"></span>
+                Blog <span className="text-gradient"></span>
               </h1>
               
               <p className="text-gray-600 max-w-2xl mx-auto">
