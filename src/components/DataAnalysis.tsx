@@ -1,9 +1,7 @@
-
 import React, { useState } from 'react';
 import { Microscope, Atom, Edit } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-
 const initialTechniques = [{
   name: "Difratometria de Raios X",
   image: "/lovable-uploads/b7184288-60e5-40c9-b146-61b253ecd6d3.png",
@@ -37,17 +35,14 @@ const initialTechniques = [{
   image: "/lovable-uploads/ac0c01fc-6250-428d-ad68-eda90cb74c33.png",
   description: "Análise topográfica de superfícies com resolução atômica."
 }];
-
 const DataAnalysis = () => {
   const [techniques, setTechniques] = useState(initialTechniques);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [tempDescription, setTempDescription] = useState("");
-
   const handleEdit = (index: number) => {
     setEditingIndex(index);
     setTempDescription(techniques[index].description);
   };
-
   const handleSave = (index: number) => {
     const updatedTechniques = [...techniques];
     updatedTechniques[index] = {
@@ -57,9 +52,7 @@ const DataAnalysis = () => {
     setTechniques(updatedTechniques);
     setEditingIndex(null);
   };
-
-  return (
-    <section id="data-analysis" className="section-padding bg-gray-50">
+  return <section id="data-analysis" className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-serif font-bold text-science-dark mb-6 animate-slide-up">
@@ -76,8 +69,7 @@ const DataAnalysis = () => {
             <Atom className="h-8 w-8 text-science-blue" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {techniques.map((technique, index) => (
-              <div key={index} className="flex flex-col items-center space-y-4 group">
+            {techniques.map((technique, index) => <div key={index} className="flex flex-col items-center space-y-4 group">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-science-blue rounded-full group-hover:scale-125 transition-transform" />
                   <span className="text-lg text-gray-700 group-hover:text-science-blue transition-colors">
@@ -86,53 +78,29 @@ const DataAnalysis = () => {
                 </div>
 
                 <div className="w-full p-4 bg-white rounded-lg shadow">
-                  {editingIndex === index ? (
-                    <div className="space-y-4">
-                      <Textarea
-                        value={tempDescription}
-                        onChange={(e) => setTempDescription(e.target.value)}
-                        className="min-h-[100px]"
-                      />
-                      <Button 
-                        onClick={() => handleSave(index)}
-                        className="w-full"
-                      >
+                  {editingIndex === index ? <div className="space-y-4">
+                      <Textarea value={tempDescription} onChange={e => setTempDescription(e.target.value)} className="min-h-[100px]" />
+                      <Button onClick={() => handleSave(index)} className="w-full">
                         Salvar Descrição
                       </Button>
-                    </div>
-                  ) : (
-                    <div className="relative group">
+                    </div> : <div className="relative group">
                       <p className="text-gray-600 text-sm">{technique.description}</p>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="absolute top-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity"
-                        onClick={() => handleEdit(index)}
-                      >
+                      <Button variant="ghost" size="icon" className="absolute top-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity" onClick={() => handleEdit(index)}>
                         <Edit className="h-4 w-4" />
                       </Button>
-                    </div>
-                  )}
+                    </div>}
                 </div>
 
                 <div className="w-full h-64 overflow-hidden rounded-lg shadow-lg transition-transform group-hover:scale-105">
-                  <img 
-                    src={technique.image} 
-                    alt={technique.name} 
-                    className="w-full h-full object-contain bg-white p-4"
-                    onError={(e) => {
-                      console.error(`Error loading image for ${technique.name}:`, e);
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600";
-                    }}
-                  />
+                  <img src={technique.image} alt={technique.name} onError={e => {
+                console.error(`Error loading image for ${technique.name}:`, e);
+                e.currentTarget.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600";
+              }} className="w-full h-full bg-white p-4 object-contain" />
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default DataAnalysis;
