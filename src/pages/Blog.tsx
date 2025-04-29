@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -15,12 +15,19 @@ import { toast } from "@/hooks/use-toast";
 
 // Categories for filter
 const categories = Array.from(new Set(initialBlogPosts.map(post => post.category)));
+
 const Blog = () => {
-  const [blogPosts, setBlogPosts] = useState(initialBlogPosts);
+  const [blogPosts, setBlogPosts] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [showNewPostForm, setShowNewPostForm] = useState(false);
-  const [postToDelete, setPostToDelete] = useState<string | null>(null);
+  const [showOnlyUserPosts, setShowOnlyUserPosts] = useState(true);
+
+  // Load posts from localStorage on component mount
+  useEffect(() => {
+    const userPosts = JSON.parse(localStorage.getItem('userBlogPosts') || '[]');
+    setBlogPosts(userPosts);
+  }, []);
 
   // Filter blog posts based on search term and category
   const filteredPosts = blogPosts.filter(post => {
@@ -28,18 +35,35 @@ const Blog = () => {
     const matchesCategory = selectedCategory === '' || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+
   const handleNewPost = (postData: any) => {
-    setBlogPosts(prevPosts => [postData, ...prevPosts]);
+    // Add the new post to the state
+    const updatedPosts = [postData, ...blogPosts];
+    setBlogPosts(updatedPosts);
+    
+    // Save to localStorage
+    localStorage.setItem('userBlogPosts', JSON.stringify(updatedPosts));
+    
     setShowNewPostForm(false);
+    toast({
+      title: "Post criado com sucesso",
+      description: "Seu post foi adicionado à lista."
+    });
   };
+
   const handleDeletePost = (slug: string) => {
-    setBlogPosts(prevPosts => prevPosts.filter(post => post.slug !== slug));
+    const updatedPosts = blogPosts.filter(post => post.slug !== slug);
+    setBlogPosts(updatedPosts);
+    
+    // Update localStorage
+    localStorage.setItem('userBlogPosts', JSON.stringify(updatedPosts));
+    
     toast({
       title: "Post excluído",
       description: "O post foi excluído com sucesso."
     });
-    setPostToDelete(null);
   };
+
   return <div className="min-h-screen flex flex-col relative">
       <Navbar />
       <main>
@@ -47,11 +71,11 @@ const Blog = () => {
           <div className="container-custom">
             <div className="text-center mb-16">
               <h1 className="text-5xl md:text-6xl font-serif font-bold text-science-dark mb-6 animate-slide-up">
-                Blog <span className="text-gradient"></span>
+                Meu Blog <span className="text-gradient"></span>
               </h1>
               
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Artigos, dicas e recursos para ajudar você em sua jornada na pós-graduação em ciências exatas e experimentais.
+                Seus artigos criados
               </p>
             </div>
             
@@ -139,7 +163,7 @@ const Blog = () => {
                     
                     {post.keywords && post.keywords.length > 0 && (
                       <div className="flex flex-wrap gap-2 mt-2 mb-4">
-                        {post.keywords.map((tag, i) => (
+                        {post.keywords.map((tag: string, i: number) => (
                           <Badge key={i} variant="outline" className="bg-gray-100 text-gray-700">
                             {tag}
                           </Badge>
@@ -152,34 +176,40 @@ const Blog = () => {
                     </Link>
                   </CardContent>
                 </Card>) : <div className="col-span-full text-center py-12">
-                  <p className="text-gray-600">Nenhum artigo encontrado para os filtros selecionados.</p>
+                  <p className="text-gray-600">
+                    {blogPosts.length === 0 
+                      ? "Você ainda não criou nenhum post. Que tal criar o primeiro?" 
+                      : "Nenhum artigo encontrado para os filtros selecionados."}
+                  </p>
                 </div>}
             </div>
             
-            {/* Pagination */}
-            <div className="mt-12">
-              <Pagination>
-                <PaginationContent>
-                  <PaginationItem>
-                    <PaginationLink href="#" aria-disabled={true} className="text-gray-400 pointer-events-none">
-                      Anterior
-                    </PaginationLink>
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink href="#" isActive>1</PaginationLink>
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink href="#">2</PaginationLink>
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink href="#">3</PaginationLink>
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink href="#">Próxima</PaginationLink>
-                  </PaginationItem>
-                </PaginationContent>
-              </Pagination>
-            </div>
+            {/* Pagination (only show if there are multiple posts) */}
+            {filteredPosts.length > 6 && (
+              <div className="mt-12">
+                <Pagination>
+                  <PaginationContent>
+                    <PaginationItem>
+                      <PaginationLink href="#" aria-disabled={true} className="text-gray-400 pointer-events-none">
+                        Anterior
+                      </PaginationLink>
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationLink href="#" isActive>1</PaginationLink>
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationLink href="#">2</PaginationLink>
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationLink href="#">3</PaginationLink>
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationLink href="#">Próxima</PaginationLink>
+                    </PaginationItem>
+                  </PaginationContent>
+                </Pagination>
+              </div>
+            )}
           </div>
         </section>
       </main>
