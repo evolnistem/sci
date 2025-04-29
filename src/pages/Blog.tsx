@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from "@/components/ui/card";
@@ -94,7 +95,7 @@ const Blog = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.length > 0 ? filteredPosts.map((post, index) => <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                   <div className="relative">
-                    
+                    <img src={post.imageUrl} alt={post.title} className="w-full h-48 object-cover" />
                     <Badge className="absolute top-3 right-3 bg-science-blue/90">{post.category}</Badge>
                     
                     {/* Delete Button */}
@@ -121,7 +122,35 @@ const Blog = () => {
                     </AlertDialog>
                   </div>
                   
-                  
+                  <CardContent className="p-6">
+                    <div className="flex items-center text-sm text-gray-500 mb-3 gap-4">
+                      <div className="flex items-center">
+                        <Calendar className="h-4 w-4 mr-1" />
+                        {post.date}
+                      </div>
+                      <div className="flex items-center">
+                        <Clock className="h-4 w-4 mr-1" />
+                        {post.readTime}
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-xl font-bold mb-2 line-clamp-2">{post.title}</h3>
+                    <p className="text-gray-600 line-clamp-3 mb-4">{post.description}</p>
+                    
+                    {post.keywords && post.keywords.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mt-2 mb-4">
+                        {post.keywords.map((tag, i) => (
+                          <Badge key={i} variant="outline" className="bg-gray-100 text-gray-700">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                    )}
+                    
+                    <Link to={`/blog/${post.slug}`} className="inline-flex items-center text-science-blue hover:underline mt-2">
+                      Ler artigo <ArrowRight className="h-4 w-4 ml-1" />
+                    </Link>
+                  </CardContent>
                 </Card>) : <div className="col-span-full text-center py-12">
                   <p className="text-gray-600">Nenhum artigo encontrado para os filtros selecionados.</p>
                 </div>}

@@ -1,12 +1,10 @@
 
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Card } from "@/components/ui/card";
 import { Image, PlusCircle, Tag, X } from 'lucide-react';
 import { toast } from "@/hooks/use-toast";
@@ -19,8 +17,15 @@ type FormData = {
   imageUrl: string;
 };
 
+interface BlogPost extends FormData {
+  slug: string;
+  keywords: string[];
+  readTime: string;
+  date: string;
+}
+
 interface BlogPostFormProps {
-  onSubmit: (data: any) => void;
+  onSubmit: (data: BlogPost) => void;
 }
 
 const BlogPostForm = ({ onSubmit }: BlogPostFormProps) => {
@@ -64,7 +69,15 @@ const BlogPostForm = ({ onSubmit }: BlogPostFormProps) => {
   };
 
   const handleSubmitForm = (data: FormData) => {
-    const finalData = {
+    // Se não houver imagem selecionada, use uma imagem de placeholder
+    if (!previewImage && !data.imageUrl) {
+      data.imageUrl = "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800";
+    } else if (previewImage && !data.imageUrl.startsWith('http')) {
+      // Se tiver preview mas não for uma URL válida, use o preview
+      data.imageUrl = previewImage;
+    }
+
+    const finalData: BlogPost = {
       ...data,
       keywords,
       slug: data.title.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s+/g, '-'),
