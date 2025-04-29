@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Image, PlusCircle, Tag, X } from 'lucide-react';
 import { toast } from "@/hooks/use-toast";
+import RichTextEditor from './RichTextEditor';
 
 type FormData = {
   title: string;
@@ -32,6 +32,7 @@ const BlogPostForm = ({ onSubmit }: BlogPostFormProps) => {
   const [keywords, setKeywords] = useState<string[]>([]);
   const [keywordInput, setKeywordInput] = useState('');
   const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [editorContent, setEditorContent] = useState('');
   
   const form = useForm<FormData>({
     defaultValues: {
@@ -79,9 +80,10 @@ const BlogPostForm = ({ onSubmit }: BlogPostFormProps) => {
 
     const finalData: BlogPost = {
       ...data,
+      content: editorContent, // Use the rich editor content
       keywords,
       slug: data.title.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s+/g, '-'),
-      readTime: `${Math.max(1, Math.ceil(data.content.length / 1000))} min`,
+      readTime: `${Math.max(1, Math.ceil(editorContent.length / 1000))} min`,
       date: new Date().toLocaleDateString('pt-BR', {
         day: '2-digit',
         month: 'short',
@@ -97,6 +99,7 @@ const BlogPostForm = ({ onSubmit }: BlogPostFormProps) => {
     form.reset();
     setKeywords([]);
     setPreviewImage(null);
+    setEditorContent('');
   };
 
   return (
@@ -125,10 +128,9 @@ const BlogPostForm = ({ onSubmit }: BlogPostFormProps) => {
               <FormItem>
                 <FormLabel>Descrição</FormLabel>
                 <FormControl>
-                  <Textarea 
+                  <Input 
                     placeholder="Breve descrição do post" 
                     {...field}
-                    rows={3}
                     required
                   />
                 </FormControl>
@@ -137,24 +139,13 @@ const BlogPostForm = ({ onSubmit }: BlogPostFormProps) => {
             )}
           />
 
-          <FormField
-            control={form.control}
-            name="content"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Conteúdo</FormLabel>
-                <FormControl>
-                  <Textarea 
-                    placeholder="Conteúdo do post..." 
-                    {...field}
-                    rows={10}
-                    required
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <FormItem>
+            <FormLabel>Conteúdo</FormLabel>
+            <RichTextEditor value={editorContent} onChange={setEditorContent} />
+            {/* Hidden input to store content value */}
+            <input type="hidden" {...form.register("content")} value={editorContent} />
+            <FormMessage />
+          </FormItem>
 
           <FormField
             control={form.control}
